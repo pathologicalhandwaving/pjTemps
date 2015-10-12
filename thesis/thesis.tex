@@ -1,0 +1,56 @@
+% Nik's template
+% nskinkel@iastate.edu
+% 2015
+
+\documentclass[12pt,a4paper]{report}
+\usepackage[pdftex]{graphicx}
+\usepackage{url}
+\usepackage[bookmarks,
+            colorlinks=false,
+            pdfborder={0 0 0},
+            pdftitle={<pdf title here>},
+            pdfauthor={Kristi Short},
+            pdfsubject={<subject here>},
+            pdfkeywords={<keywords here>}]{hyperref}
+\usepackage{appendix}
+%\usepackage[toc,xindy]{glossaries}% uncomment if you have xindy
+\usepackage[toc]{glossaries}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %
+% % Some common theorem-ish structures to use
+% %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newenvironment{proof}{{\sc Proof:}}{~\hfill QED}
+
+\makeglossaries
+
+\begin{document}
+\renewcommand\bibname{References}
+
+\include{title}
+\include{abstract}
+
+\pagenumbering{roman} %numbering before main content starts
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+\pagenumbering{arabic} %reset numbering to normal for the main content
+
+\include{glossary}
+\include{introduction}
+\include{conclusion}
+\include{acknowledgements}
+\include{appendix}
+\include{ref}
+\printglossaries
+
+\end{document}
