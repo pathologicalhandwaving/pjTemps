@@ -24,13 +24,9 @@ In cannonical symmetric-key schemes only one key is generated for both the encry
 encryption and have exchanged secret keys. 
 \newline
 Formally, we say the two parties are in possesion of a \textit{shared secret} and each party is mutually, as well as equally responsible for the maintenance of the secret which establishes and secures their communications. 
-In certain contexts this method can be made to be as secure as an asymmetric key system its main drawback is the shared secret which has the ability to invalidate the
-integrity of communications if either party is compromised.
+In certain contexts this method can be made to be as secure as an asymmetric key system its main drawback is the shared secret which has the ability to invalidate the integrity of communications if either party is compromised.
 \newline
-Additionally since the method requires a secure channel as well as a
-shared secret both parties must know they will have a need for
-encrypted communication in advance and negotiate the means of
-transmission and key exchange prior to communicating. This means the parties must know each other prior to communicating. 
+Additionally since the method requires a secure channel as well as a shared secret both parties must know they will have a need for encrypted communication in advance and negotiate the means of transmission and key exchange prior to communicating. This means the parties must know each other prior to communicating. 
 
 \subsubsubsection{Asymmetric-key Cryptography}
 
@@ -40,45 +36,58 @@ schemes not only for efficiency purposes but also in the role of key
 management. 
 
 \section{Provable Security} 
-\textbf{"Should possibly merge this section and the Hardness Assumptions section"} 
+
+\textbf{SHOULD POSSIBLY MERGE WITH THE HARDNESS ASSUMPTIONS SECTION} 
 
 \subsection{Defining Security with Games} 
 
 \subsubsection{Semantic Security: Mental Poker and Partial Information} 
 
-Semantic Security was a game proposed by Goldwasser and Micali in their 1982 paper entitled: \textit{"Probabilistic Encryption & How to Play Mental Poker Keeping Secret All Partial Information"} 
+Semantic Security was a game proposed by Goldwasser and Micali in their 1982 paper entitled: \textit{"Probabilistic Encryption /& How to Play Mental Poker Keeping Secret All Partial Information"} 
 \newline
-\textbf{Insert Citation: @inproceedings{Goldwasser:1982:PEA:800070.802212, author = {Goldwasser,
-Shafi and Micali, Silvio}, title = {Probabilistic Encryption /& How to Play Mental Poker Keeping Secret All Partial Information}, booktitle= {Proceedings of the Fourteenth Annual ACM Symposium on Theory of Computing}, series = {STOC '82}, year ={1982}, isbn = {0-89791-070-2},location = {San Francisco, California, USA}, pages = {365--377},numpages = {13}, url = {http://doi.acm.org/10.1145/800070.802212}, doi
-= {10.1145/800070.802212}, acmid = {802212}, publisher = {ACM}, address= {New York, NY, USA}, }} 
+\textbf{INSERT CITE-KEY:} 
+%@inproceedings{Goldwasser:1982:PEA:800070.802212, author = {Goldwasser, Shafi and Micali, Silvio}, 
+%title = {Probabilistic Encryption /& How to Play Mental Poker Keeping Secret All Partial Information}, 
+%booktitle= {Proceedings of the Fourteenth Annual ACM Symposium on Theory of Computing}, 
+%series = {STOC '82}, 
+%year ={1982}, 
+%isbn = {0-89791-070-2},
+%location = {San Francisco, California, USA}, 
+%pages = {365--377},
+%numpages = {13}, 
+%url = {http://doi.acm.org/10.1145/800070.802212}, 
+%doi= {10.1145/800070.802212}, 
+%acmid = {802212}, 
+%publisher = {ACM}, 
+%address= {New York, NY, USA}, }} 
 \newline
-The Mental Poker game was based on the implementation of the Diffie-Hellman implementation of RSA by Rivest, Shamir, Adelman, and Rabin.
-\footnote{Specifically, Rabin's 1979 Technical Memo "Digitalized
-Signatures and Public-key Functions as Intractable as Factorization""}
-\footnote{Rivest, Shamir, and Adelmans paper from Publications of
-the ACM, February 1978 "A Method for Obtaining Digital Signatures and
-Public Key Cryptosystems."}" 
+The Mental Poker game was based on the implementation of the \textbf{TO-DO add gloss} Diffie-Hellman implementation of RSA by Rivest, Shamir, Adelman, and Rabin.
+\footnote{Specifically, [Rab1979] Rabin's 1979 Technical Memo \textit{"Digitalized Signatures and Public-key Functions as Intractable as Factorization"}}
+\footnote{[Riv1978] Rivest, Shamir, and Adelmans paper from Publications of the ACM, February 1978 \textit{"A Method for Obtaining Digital Signatures and Public Key Cryptosystems."}}
+\textbf{TO-DO: INSERT CITATIONS TO REFS: [Rab1979], [Riv1978], [Gol1982]}
 
 \textbf{Formal Definition:}
-[Gol1982] Proposed the following property for any implementation of a Diffie-Hellman
-Public-key Cryptosystem: 
-\textit{"An adversary, who knows the encryption of an algorithm and is given the cypher text, cannot obtain any information about the cleartext."} \footnote{[Gol1982] Pg.1, Paragraph 1, Lines 3-6} 
+\newline
+[Gol1982] Proposed the following property for any implementation of a Diffie-Hellman Public-key Cryptosystem:  \textit{"An adversary, who knows the encryption of an algorithm and is given the cypher text, cannot obtain any information about the cleartext."} \footnote{[Gol1982] Pg.1, Paragraph 1, Lines 3-6} 
+
+\newline
+
 \textbf{Informally:}
-A given cryptographic scheme is considered insecure if it is possible for an adversary to recover any information about the plaintext, using the ciphertext, but without knowing the private key. That is, if it is feasible for the adversary to find out some information about the plaintext of the message or recover useful information about the plaintext of the message by manipulating the ciphertext in a reasonable
-amount of time, (before he dies of old age or the heat death of the
-universe occurs) then the cryptosystem that created those ciphertext
-messages (is broke as shit) is insecure. \textit{Kristi fix this wtf dude…}
+\newline
+A given cryptographic scheme is considered insecure if it is possible for an adversary to recover any information about the plaintext, using the ciphertext, but without knowing the private key. That is, if it is feasible for the adversary to find out some information about the plaintext of the message or recover useful information about the plaintext of the message by manipulating the ciphertext in a reasonable amount of time, 
+%(before he dies of old age or the heat death of the universe occurs) then the cryptosystem that created those ciphertext messages (is broke as shit) is insecure. \textit{Kristi fix this wtf dude…}
 
 \subsubsection{Weaknesses in the Assumptions of RSA} 
+\newline
 
-Goldwasser and Micali pointed out that the security assumptions given in [Riv1978] and [Rab1979] had some particularly significant weaknesses that could not be assumed lightly.
-Namely,
+Goldwasser and Micali pointed out that the security assumptions given in [Riv1978] and [Rab1979] had some particularly significant weaknesses that could not be assumed lightly. Namely,
+
 \begin{itemize} 
-\item Assumption 1: Security of the RSA system is based on the intractability of the number theoretic problems of factorization, index finding, and the decision problem of whether or not a number is a quadratic residue with respect to a composite modulus. 
-\item This assumption states that the impossible hardness of one of these problems is
-equivalent to RSA being computationally infeasible. 
-\item Assumption 2: The second assumption is that there exists a trapdoor function $f(x)$ that is easily computed, while $x$ is not easily computed from $f(x)$ unless some additional information is known. 
-\item However, Not all hard problems are as hard as other hard problems. In particular, RSA is based on the assumption that factoring large composites is a hard problem. However, not all large composite numbers are hard to factor in fact some are quite easy. For example, if $c$ is a composite such that $c=qp$ for primes $p$ and $q$ then if $p$ and $q$ are close enough together we have some assurances they will be easily factorable. \textbf{Insert Formal Maths Definition}
+\item \textbf{Assumption 1: Security of the RSA system is based on the intractability of the number theoretic problems of factorization, index finding, and the decision problem of whether or not a number is a quadratic residue with respect to a composite modulus. \newline This assumption states that the impossible hardness of one of these problems is equivalent to RSA being computationally infeasible. 
+\item \textbf{Assumption 2:} The second assumption is that there exists a trapdoor function $f(x)$ that is easily computed, while $x$ is not easily computed from $f(x)$ unless some additional information is known. \newline However, Not all hard problems are as hard as other hard problems. \newline In particular, RSA is based on the assumption that factoring large composites is a hard problem. \newline However, not all large composite numbers are hard to factor in fact some are quite easy. For example, if $c$ is a composite such that $c=qp$ for primes $p$ and $q$ then if $p$ and $q$ are close enough together we have some assurances they will be easily factorable. 
+\newline
+\item \textbf{TODO: INSERT FORMULA}
+\newline
 \end{itemize} 
 
 \section{Equivalent and Stronger Definitions for Security} 
@@ -88,29 +97,45 @@ equivalent to RSA being computationally infeasible.
 \begin{itemize}
 \item \textbf{IND-CPA} IND-CPA says if an attacker can choose any plaintext and obtain the corresponding ciphertext, then if the system is secure this information does not help them find the private key. However, the issue with CPA is that it depends on the choices of an adversary who is unaware of the secret key. i.e. If the
 attacker has two messages then they have no idea if either one contains the key since they don't know what the key is. 
-\item The problem that happens is when I decided to encrypt my own key. Then by CPA I could encrypt the key and the scheme return my key unencrypted and it still satisfies
-CPA, and even though the scheme has blatantly revealed my private key, technically it is still semantically secure under CPA (except I am not attacking my own accounts and I had better know my own key). 
-\item \textbf{CCAI} 
-\item \textbf{CCAII}
+\newline 
+In application this classififcation is not sufficient (weakly sufficient) to ensure secure communication. In practice this becomes an issue when a user decides to encrypt their own key.
+\newline 
+By IND-CPA the user can encrypt their private-key but the scheme may return the private-key unencrypted. 
+\newline 
+By the definition of IND-CPA this action is still classified as secure, even though the scheme has blatantly revealed the users private key.
+\newline
+
+\textbf{TODO: INSERT MATHS DEFINITION AND FORMULA}
+
+\item \textbf{IND-CCAI} 
+\textbf{TODO: INSERT SECTION}
+\item \textbf{IND-CCAII}
+\textbf{TODO: INSERT SECTION}
 \end{itemize}
 
-\section{InfoSec & it's Objectives} 
-Their are four basic security objectives that must be considered when constructing any system concerned with securing data or information. The four basic definitions allow for the derivation of all other security objectives which may or may not be
-necessary to ensure the security of information for a given system.
+\section{InfoSec /& it's Objectives} 
+
+\subsection{Base Security Objectives}
+
+There are four basic security objectives that must be considered when constructing any system concerned with securing data or information. These four basic definitions allow for the derivation of all other security objectives which may or may not be necessary to ensure the security of information for a given system.
 
 \begin{itemize}
-\item \textbf{Confidentiality:} The objective of confidentiality ensures that
-unauthorized users will not be purposefully or accidentally give access
-to the resources protected by a given security system. Integrity:
-Ensures that the resources are preserved, used, and appropriately
-maintained throughout their life-cycle under the system. That is, any
-data is not alterable in an undetectable manner, retains the same
-accuracy as its created date (or registered modification date), and is
-complete with respect to its creation and activity log. 
-\textbf{INSERT TABLE}
+\item \textbf{Confidentiality:} The objective of confidentiality ensures that unauthorized users will not be purposefully (or accidentally) give access to resources protected by the system. 
+\item \textbf{Integrity:} Ensures that the resources are preserved, used, and appropriately maintained throughout their life-cycle under the system. That is, any data is not alterable in an undetectable manner, retains the same
+accuracy as its created date (or registered modification date), and is complete with respect to its creation and activity log. 
 \item \textbf{Availability:}
 \item \textbf{Non-repudiation:} 
+\end{itemize}
 
-\section{Security Reduction} 
+\subsubsection{Derived Security Objectives}
 
+Each implementation of a scheme requires a flexible set of security objectives which are dependent upon the context the system and it's users will employ \textbf{TODO:change wording}. The base definitions for the objectives allow the derivation of all other security objectives.
+
+\newline
+\textbf{TODO: INSERT TABLE (it is in figures)}
+\newline
+\section{Formal Security Reduction} 
+\textbf{TODO: INSERT SECTION}
 \textbf{Definition}
+\textbf{TODO: INSERT SECTION}
+\textbf{TODO: INSERT FORMULA}
