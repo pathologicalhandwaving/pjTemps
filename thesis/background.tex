@@ -197,8 +197,11 @@ RSA and other classical schemes can only evaluate data over the operation they a
 In cryptography we say a scheme that has this property is malleable and it is not always a good property for the scheme to have. Malleable means that an attacker can change an encrypted message, decrypt it and gain useful information. Lets say that you send 5$ to Eve, then Eve can get enough information to put two zeros behind the five and suddenly you’ve just given Eve 500/$ instead. 
 
 \newline
-In contrast, FHE schemes are not limited to a single operation and can simultaneously compute any number of arbitrary operations. A doubly homomorphic encryption system means a computer can use encrypted to derive boolean logic circuits, if this is possible we can make any arbitrary program to run on these bits.
+FHE schemes are not limited to a single operation and can simultaneously compute any number of arbitrary operations. 
 
+All computers operate by using trillions upon trillions of boolean circuits. Boolean circuits are special cases of propositional formulas, truth tables, where the only output ever given by the system is either yes or no; in computer terms zero or one. 
+
+Boolean circuits have three basic functions from which the rest can be derived, they are AND, OR, and NOT. You can combine these two of functions to get a total set of sixteen different boolean functions. Engineers have been using these functions for ages, but cryptographers were stuck with one. 
 
 Cloud Outsourcing 
 
