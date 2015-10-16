@@ -234,8 +234,7 @@ structures it is often chosen without consideration to any other ring \textbf{TO
 
 In 2010 at the Public Key Cryptography Conference two researchers Smart and Veracauteren [SV10] introduced another ideal lattice scheme promising fully homomorphic encryption and quantum assumption hardness proofs. In late 2014 GCHQ (Government Communications Head Quarters) announced that it had been working on such a scheme, nearly identical to [SV10] and claimed that not only was it easy to solve using a quantum computer but was subexponential for classical computer systems as well. The attack did not directly apply to most constructions of lattice-based schemes only a handful who had used ideal lattices in the cyclotomic field of characteristic two, where the private keys were represented by principal ideals which were short generators. 
 
- verified by Peikert (GATech) in the later part of this year; is that for these rings the
-mere guarantee of a short basis reduces the security of the construction to the easy case, allowing the lattice to be efficiently decoded, leaving the private key exposed.
+A team of researchers Ronald Cramer, Leo Ducas, Chris Peikert, and Oded Regev [Cra15] who had prior to CESG announcement strongly encouraged new constructions in other fields quickly proved CESG’s claim. Moreover, they proved that in cyclotomic fields with dimensions of prime power order which guaranteed existence of a ‘short’ generator the lattice could always be efficiently decoded revealing the private key.
 
 \section{Greedy Problem Management}
 
