@@ -7,8 +7,7 @@
 \subsubsection{Problem solved by PKC}
 
 Public Key Cryptography (PKC) solves the problem of how to enable two people who have never met to but need to communicate securely over insecure channels. 
-Public-key uses a one-way function as its public key; this function is easy to compute but hard to invert and is available publicly for use as an encryption method for the key owner. A second key called the private key is known only to the
-key owner; this key is a trapdoor function which can invert a ciphertext back to its plaintext form. 
+ 
 
 Public-key is bidirectional. The forward direction is the one-way public key which easily computes the ciphertext, the backward direction is the trapdoor private key,
 which easily inverts to the plaintext. 
@@ -29,11 +28,11 @@ In certain contexts this method can be made to be as secure as an asymmetric key
 Additionally since the method requires a secure channel as well as a shared secret both parties must know they will have a need for encrypted communication in advance and negotiate the means of transmission and key exchange prior to communicating. This means the parties must know each other prior to communicating. 
 
 \subsubsubsection{Asymmetric-key Cryptography}
-
-In contrast symmetric-key schemes are determined by two sets of keys one for each party. Each set consists of a private key known only to the owner and a public key which can be widely distributed. It seems at first glance that asymmetric and symmetric cryptosystems are isolated methods of encryption. However, symmetric
-encryption is well-suited for the task of assisting asymmetric key
-schemes not only for efficiency purposes but also in the role of key
-management. 
+In contrast symmetric-key schemes are determined by two sets of keys one for each party. Each set consists of a private key known only to the owner and a public key which can be widely distributed.
+Public-key uses a one-way function as its public key; this function is easy to compute but hard to invert and is available publicly for use as an encryption method for the key owner. A second key called the private key is known only to the key owner; this key is a trapdoor function which can invert a ciphertext back to its plaintext form.
+ 
+\subsubsection{Connecting Symmetric /& Asymmetric Cryptography}
+It seems at first glance that asymmetric and symmetric cryptosystems are isolated methods of encryption. However, symmetric encryption is well-suited for the task of assisting asymmetric key schemes not only for efficiency purposes but also in the role of key management. 
 
 \section{Provable Security} 
 
@@ -92,17 +91,19 @@ Goldwasser and Micali pointed out that the security assumptions given in [Riv197
 
 \section{Equivalent and Stronger Definitions for Security} 
 
-\textbf{INSERT INTRODUCTORY PARAGRAPH}
+All cryptographic schemes such as RSA, El Gamal, etc. must satisfy the requirements of semantic
+security, specifically they must satisfy the Indistinguishable Chosen Plaintext Attack (IND-CPA) requirement.
 
 \begin{itemize}
 \item \textbf{IND-CPA} IND-CPA says if an attacker can choose any plaintext and obtain the corresponding ciphertext, then if the system is secure this information does not help them find the private key. However, the issue with CPA is that it depends on the choices of an adversary who is unaware of the secret key. i.e. If the
 attacker has two messages then they have no idea if either one contains the key since they don't know what the key is. 
 \newline 
-In application this classififcation is not sufficient (weakly sufficient) to ensure secure communication. In practice this becomes an issue when a user decides to encrypt their own key.
+In application this classififcation is not sufficient (weakly sufficient) to ensure secure communication. There are situations which occur where the semantic security definition is satisfied but an insecurity still occurs. One
+such instance is the case where the user might encrypt their own private key. 
 \newline 
 By IND-CPA the user can encrypt their private-key but the scheme may return the private-key unencrypted. 
 \newline 
-By the definition of IND-CPA this action is still classified as secure, even though the scheme has blatantly revealed the users private key.
+By the definition of IND-CPA this action is still classified as secure, even though the scheme has blatantly revealed the users private key. 
 \newline
 
 \textbf{TODO: INSERT MATHS DEFINITION AND FORMULA}
@@ -140,333 +141,94 @@ Each implementation of a scheme requires a flexible set of security objectives w
 \textbf{TODO: INSERT SECTION}
 \textbf{TODO: INSERT FORMULA}
 
-\section{UNMODIFIED PLAINTEXT}
-First Half Introduction Introducing the Game Modern cryptographic
-schemes can be viewed as two classes asymmetric-key schemes and
-symmetric-key schemes. Symmetric schemes are in general more efficient
-than asymetric schemes but have the disadvantage that keys must be
-agreed upon by parties who wish to communicate in advance. Specifically
-symmetric-key schemes require that secret keys be distributed over
-secure channels. These types of key distribution schemes are not
-compatible with most modern methods of communication over networks,
-which are by and large conducted over the internet, an insecure
-channel. Public-key cryptography is an asymmetric-key class of systems
-which allows parties which have never met, much less agreed upon secret
-keys in advance, to communicate privately over insecure channels (we
-continue this discussion in the background section of the text,
-briefly). The primary concern is to make communication by public key
-cryptographic schemes as efficient, secure, and easy to implement as
-those of asymmetric key systems. The problem of mirroring the
-characteristics of asymmetric key schemes is a difficult problem and
-can be considered a benchmark for implementation of public-key schemes.
-In this context use of symmetric encryption methods is often a second
-stage problem. That is, first the cryptosystem is created with some
-thought in mind to its implementation and efficiency but with more
-thought in mind to its security, particularly in the face of incoming
-or expected threats in the near future. Since the primary reason
-cryptography exists is to keep communications and information private
-the role of risk management is weighted necessarily heavier towards
-ensuring the fulfillment of a given set of security objectives. An
-encryption scheme however is useless unless it can be implemented and a
-balance between efficiency and security must be carefully, and
-continuously maintained throughout not only the development of the
-scheme but during its implementation as well. The balancing act between
-efficiency and security is illustrated in the first half of this paper
-which gives an account of the events and results following an
-unexpected announcement by British researchers in the
-Communications-Electronics Security Group (CESG) (the information
-assurance division of the Government Communications Headquarters
-(GCHQ)) in their informal report Soliloquy: A Cautionary Tale. The
-introduction of lattice in cryptography brought in new, enthusiastic
-researchers and propelled experienced researchers to the forefront
-whose advice, often repeated was misunderstood and in many instances
-ignored. It is worth explicitly stating that cryptography is
-inextricably, and defined by its relationship with security objectives
-and privacy. These constraints not only benefit from the
-diversification schemes from their original construction, they demand
-it. However, as lattice cryptography increased in popularity the demand
-for diversification was so often ignored by researchers in favor of
-achieving efficiency it became increasingly difficult to find
-constructions which had not been constructed over a particular number
-field; more over research had focused not simply to this number field
-it had narrowed to the point of most constructions being defined
-specifically over the cyclotomic field of characteristic two. It is
-perhaps lucky that the discovery by the researchers at CESG was not
-only disclosed publicly (the agency does not in general reveal much
-less publish their findings), but that the defect was not found as a
-consequence of an exploit, or even more at some point in the future
-when cryptosystems having this type of construction may be widely
-implemented and assumed secure. Introducing the Players Traditionally
-cryptography has been a two player game between cryptographers and
-cryptanalysts. However, cryptanalysis has diversified over time leaving
-cryptographers to play defense against an increasingly diverse set of
-cryptanalysts on the offense. Characterization of Cryptanalysts We
-divide cryptanalysts into four subclasses given as a variation of the
-subclasses of cryptographic secrecy. We make our division in reverse
-order in terms of hardness as follows: Practical Secrecy: In this
-subclass of cryptanalysts we have those which most frequently occur.
-These cryptanalysts are in possesion of finite computational resources
-but may use social, sidechannel, or other methods to obtain a break on
-a system which does not break the mathematics of the scheme itself, may
-not in the future be reproduced, but are sucessful in their attempt
-none the less. Computational Secrecy: This subclass of cryptanalysts
-are those who we can assume have at their disposal more resources and
-are capable of more large scale attacks than those in the previous
-subclass. They are still in possession of all the methods of the
-practical cryptanalysts but we make the assumption that they are not
-working alone but as a well organized unit such as those of a large
-organization. These attacks are becoming more and more frequent the
-organization itself may be known to the defense but for various reasons
-( including but not limited to political) a direct confrontation must
-be avoided. Unconditional Secrecy: In this subclass we find those
-cryptanalysts who directly attack the mathematics of a given
-cryptosystem. Specifically we have the cryptanalysts who play against
-most modern systems based on the discrete logarithm problem, the
-integer factorization problem, and other number theoretic schemes. We
-limit this group to problems which are played over systems whose proofs
-of security are given over schemes an average-case hardness. Perfect
-Secrecy: This is the subclass of cryptanalysts we will be concerned
-with for the remainder of this paper. These players are concerned with
-breaking the mathematics of schemes based on intractible problems with
-a provable security based on worst-case hardness assumptions.
-Specifically, we concern ourselves with the concept of quantum-safe
-cryptographic schemes over lattices. The Soliloquy Problem In 2010 at
-the International Public Key Cryptography conference Smart and
-Veracauteren introduced a cryptographic scheme [Sma2010] based on
-principal ideal lattices with relatively small key sizes and promising
-to enable FHE. In late 2014 GCHQ announced that they had developed an
-equivalent cryptosystem to [Sma2010] in 2007 named Soliloquy, but from
-2010 to 2013 they had constructed a successful attack against the
-system and decided to cease development. Furthermore, they claimed
-(without proof) that the assumed hard problem of finding the short
-generator of a principal ideal lattice was both easy and efficient to
-solve. This conflicted with the [Sma2010] claim that the problem of
-finding a short generator was hard. In addition the solvability claim
-GCHQ was not only given for quantum computers but also for ordinary
-modern computer system with a practical amounts of resources. The
-announcement by GCHQ created quite a stir in the cryptographic
-community. The concern was due to the seeming quantum-safe properties
-of lattice based cryptosystems. Since, ideal lattice-based schemes are
-a small subset of these schemes there was a need to ensure that the
-attack did not imply similar weaknesses in the more general schemes or
-any other special cases of lattice-based schemes. Summary of Contents
-First Half In the first half of this paper we give an overview of fully
-homomorphic encryption (FHE) as well as describe the need for such
-systems. We give a summary of the history of FHE schemes and an
-overview of the first sucessful construction given by Gentrys Stanford
-PhD thesis [Gen2009] as well as the construction from [Sma2010]. We
-contrast these two schemes with an overview of the more general
-construction of Peikerts RLWE and discuss the LWE problem, and the
-concept of the mathematical basis of hardness assumptions. We then give
-an overview of the quantum and general solutions proved since the GCHQ
-announcement and summarize the results found by researchers in the
-process of verification of these claims. Second Half In the second half
-of this paper we discuss the problem of verifying if RLWE schemes come
-with a connected expander graph and its implication that FHE is circuit
-private. Background Cryptographic Construction Types Cryptographic
-Primitives Does this go here or under PKC Public Key Cryptography
-Problem solved by PKC Public Key Cryptography (PKC) solves the problem
-of how to enable two people who have never met to communicate securely
-over insecure channels. PKC uses a one-way function as its public key;
-this function is easy to compute but hard to invert and is available
-publicly for use as an encryption method for the key owner. A second
-key called the private key is known only to the key owner. The private
-key is a trapdoor function which can invert a ciphertext back to its
-plaintext form. PKC consists of two directions the forward direction is
-the one-way public key which easily computes the ciphertext, the
-backward direction is the trapdoor private key, which easily inverts to
-the plaintext. PKC Diagram (General) Asymmetric & Symmetric
-Cryptography The concepts of symmetric and asymmetric cryptographic-key
-schemes are given below as independent forms. However, it is rarely the
-case that these schemes will be applied in this manner particularly in
-a Public-key asymmetric system. Symmetric-key Cryptography In
-cannonical symmetric-key schemes only one key is generated for both the
-encryption and decryption algorithms. Symmetric-keys must therefore be
-exchanged over secure channels where both communicating parties have
-agreed in advance to the method of encryption and have exchanged secret
-keys. Formally, we say the two parties are in possesion of a shared
-secret and each party is mutually, as well as equally responsible for
-the maintenance of the secret which establishes and secures their
-communications. In certain contexts this method can be made to be as
-secure as an asymmetric key system its main drawback is the shared
-secret which has the ability to invalidate the integrity of
-communications if either party is compromised. Additionally since the
-method requires a secure channel as well as a shared secret both
-parties must know they will have a need for encrypted communication in
-advance and negotiate the means of transmission and key exchange prior
-to communicating. This means the parties must know each other prior to
-communicating. Asymmetric-key Cryptography In contrast symmetric-key
-schemes are determined by two sets of keys one for each party. Each set
-consists of a private key known only to the owner and a public key
-which can be widely distributed. It seems at first glance that
-asymmetric and symmetric cryptosystems are isolated methods of
-encryption. However, symmetric encryption is well-suited for the task
-of assisting asymmetric key schemes not only for efficiency purposes
-but also in the role of key management. Provable Security Should
-possibly merge this section and the Hardness Assumptions section
-Defining Security with Games Semantic Security: Mental Poker and
-Partial Information Semantic Security was a game proposed by Goldwasser
-and Micali in their 1982 paper entitled: Probabilistic Encryption & How
-to Play Mental Poker Keeping Secret All Partial Information" Citation:
-@Gol1982 @inproceedings{Goldwasser:1982:PEA:800070.802212, author =
-{Goldwasser, Shafi and Micali, Silvio}, title = {Probabilistic
-Encryption \&Amp; How to Play Mental Poker Keeping Secret All Partial
-Information}, booktitle = {Proceedings of the Fourteenth Annual ACM
-Symposium on Theory of Computing}, series = {STOC '82}, year = {1982},
-isbn = {0-89791-070-2}, location = {San Francisco, California, USA},
-pages = {365--377}, numpages = {13}, url =
-{http://doi.acm.org/10.1145/800070.802212}, doi =
-{10.1145/800070.802212}, acmid = {802212}, publisher = {ACM}, address =
-{New York, NY, USA}, } The Mental Poker game was based on the
-implementation of the Diffie-Hellman implementation of RSA by Rivest,
-Shamir, Adelman, and Rabin. (See footnote below) Footnote:
-Specifically, @Gol1982 cite Rabins 1979 Technical Memo Digitalized
-Signatures and Public-key Functions as Intractable as Factorization
-@Rab1979 And, Rivest, Shamir, and Adelmans paper from Publications of
-the ACM, February 1978 A Method for Obtaining Digital Signatures and
-Public Key Cryptosystems. @Riv1978 Formal Definition: @Gol1982 Proposed
-the following property for any implementation of a Diffie-Hellman
-Public-key Cryptosystem: An adversary, who knows the encryption of an
-algorithm and is given the cypher text, cannot obtain any information
-about the cleartext." @Gol1982 Pg.1, Paragraph 1, Lines 3-6 Informally:
-A given cryptographic scheme is considered insecure if it is possible
-for an adversary to recover any information about the plaintext, using
-the ciphertext, but without knowing the private key. That is, if it is
-feasible for the adversary to find out some information about the
-plaintext of the message or recover useful information about the
-plaintext of the message by manipulating the ciphertext in a reasonable
-amount of time, (before he dies of old age or the heat death of the
-universe occurs) then the cryptosystem that created those ciphertext
-messages (is broke as shit) is insecure. Kristi fix this wtf dude…
-Weaknesses in the Assumptions of RSA Goldwasser and Micali pointed out
-that the security assumptions given in @Riv1978 and @Rab1979 had some
-particularly significant weaknesses that could not be assumed lightly.
-Namely, Assumption 1: Security of the RSA system is based on the
-intractability of the number theoretic problems of factorization, index
-finding, and the decision problem of whether or not a number is a
-quadratic residue with respect to a composite modulus. This assumption
-states that the impossible hardness of one of these problems is
-equivalent to RSA being computationally infeasible. Assumption 2: The
-assumption that there exists a trapdoor function f(x) that is easily
-computed, while x is not easily computed from f(x) unless some
-additional information is known. Not all hard problems are as hard as
-other hard problems: RSA is based on the assumption that factoring
-large composites is a hard problem. However, not all large composite
-numbers are hard to factor in fact some are quite easy. For example, if
-c is a composite such that c=qp for prime p and q Equivalent and
-Stronger Definitions for Security CPA IND-CPA says if an attacker can
-choose any plaintext and obtain the corresponding ciphertext, then if
-the system is secure this information does not help them find the
-private key. However, the issue with CPA is that it depends on the
-choices of an adversary who is unaware of the secret key. i.e. If the
-attacker has two messages then they have no idea if either one contains
-the key since they don't know what the key is. The problem that happens
-is when I decided to encrypt my own key. Then by CPA I could encrypt
-the key and the scheme return my key unencrypted and it still satisfies
-CPA, and even though the scheme has blatantly revealed my private key,
-technically it is still semantically secure under CPA (except I am not
-attacking my own accounts and I had better know my own key). CCAI CCAII
-InfoSec & it's Objectives Their are four basic security objectives that
-must be considered when constructing any system concerned with securing
-data or information. The four basic definitions allow for the
-derivation of all other security objectives which may or may not be
-necessary to ensure the security of information for a given system.
-Confidentiality: The objective of confidentiality ensures that
-unauthorized users will not be purposefully or accidentally give access
-to the resources protected by a given security system. Integrity:
-Ensures that the resources are preserved, used, and appropriately
-maintained throughout their life-cycle under the system. That is, any
-data is not alterable in an undetectable manner, retains the same
-accuracy as its created date (or registered modification date), and is
-complete with respect to its creation and activity log. Availability:
-Non-repudiation: Security Reduction Definition Cryptographic Security
-Audit Add check list to Appendix Hardness Assumptions Average-case We
-say a cryptographic algorithm or cryptosystem has average-case hardness
-if: Informally: The mathematical problem the algorithm (or system of
-algorithms) is based on cannot be solved in polynomial time by a
-standard computer with a slightly more than reasonable amount of
-resources. More-formally: If a key is chosen at random, then there is
-no probabilistic polynomial time algorithm that solves the mathematical
-problem for some non negligible probability. Best-case Worst-case For
-an average-case security proof we are assured the mathematical problem
-the scheme is based on cannot be solved by a classical computer system
-in polynomial time in all except a negligible set of its random
-functional instances. A worst-case security proof carries all the
-security given by the average-case, but it also covers the small set of
-functional instances the average-case counts as negligible. Informally,
-a worst-case security proof takes the functional instance which is
-hardest to solve and shows the scheme is as least as strong as that
-instance, and since there are no harder instances, there does not exist
-a computer which can solve its mathematical problem in polynomial time.
-Post-quantum cryptography The idea of quantum-safe Need for
-quantum-safety Schemes with provably secure claims which may or have
-been or could be efficient upon implementation Lattice-base
-Cryptography Benefits in common with other post-quantum cryptographic
-schemes Lattice-based Cryptosystems are a subclass of Post-quantum
-cryptosystems. A worst-case security proof for a lattice based scheme
-not only claims security against attacks from classical (current)
-computer systems, but quantum as well. Drawbacks Not as efficient (yet)
-as other more well known schemes. Unique benefit of LBC FHE Fully
-Homomorphic Encryption What is FHE Homomorphic Properties of
-Cryptographic Schemes Many classical public key cryptography methods
-have a homomorphic property, this property says if add two things
-together then their sum contains information about those two things.
-That is they use successive operations of addition, multiplication,
-etc. to create ciphertext. Informal Definition (verbal) Formal
-Definition (symbolic) We call these schemes Partially Homomorphic or
-Doubly Homomorphic since their operations can be performed
-simultaneously. Problem Solved by FHE The problem which FHE solves is
-only slightly different than that of PKC. We want to take our encrypted
-data, send it to an unauthorized party for processing, and receive the
-same results we would get if we had never encrypted it.
+\section{Hardness Assumptions} 
 
-FHE schemes are not limited to a single operation and can
-simultaneously compute any number of arbitrary operations. The
-cyclotomic field of characteristic two infers so many convenient
-structures it is often chosen without consideration to any other ring.
-Recent by GCHQ in their own construction, and verified by Peikert
+\subsection{Average-case}  
+We say a cryptographic algorithm or cryptosystem has average-case hardness if: 
+Informally: The mathematical problem the algorithm (or system of
+algorithms) is based on cannot be solved in polynomial time by a
+standard computer with a slightly more than reasonable amount of resources. 
+\newline
+More-formally: If a key is chosen at random, then there is no probabilistic polynomial time algorithm that solves the mathematical problem for some non-negligible probability. 
+
+\subsection{Best-case}
+
+\subsection{Worst-case} 
+For an average-case security proof we are assured the mathematical problem
+the scheme is based on cannot be solved by a classical computer system in polynomial time in all except a negligible set of its random functional instances.
+A worst-case security proof carries all the security given by the average-case, but it also covers the small set of functional instances the average-case counts as negligible. 
+\newline
+Informally, a worst-case security proof takes the functional instance which is
+hardest to solve and shows the scheme is as least as strong as that
+instance, since there are no harder instances, there does not exist
+a computer which can solve its mathematical problem in polynomial time.
+
+\section{Post-quantum cryptography} 
+
+
+\section{Lattice-based Cryptography} 
+Lattice-based Cryptosystems are a subclass of Post-quantum cryptosystems. A worst-case security proof for a lattice based scheme not only claims security against attacks from classical (current) computer systems, but quantum as well. The drawback is these not as efficient (yet) as other more well known schemes. However, lattice-based schemes claim a unique benefit that other post-quantum schemes do not. 
+
+\subsection{Ajtai's Average-Worst Case Hardness Connection}
+
+\subsection{Learning with Errors (LWE)}
+
+LWE, has a quantum reduction from SVP. LWE forms the basis of security for many other algorithms which gain SVP as basis for their own security.
+ 
+ 
+\subsection{Fully Homomorphic Encryption} 
+Lattice-based schemes have the potential of providing Fully Homomorphic Encryption to a given cryptosystem. 
+The problem which FHE solves is only slightly different than that of PKC. We want to take our encrypted data, send it to an unauthorized party for processing, 
+and receive the same results we would get if we had never encrypted it.
+\newline
+Cryptologists have spent a great deal of their time removing the natural homomorphisms from most schemes like RSA. While at the same time wishing for a doubly homomorphic system. 
+
+\newline
+
+\subsubsection{Homomorphic Properties of Cryptographic Schemes} 
+Many classical public key cryptography methods have a homomorphic property, this property says if add two things together then their sum contains information about those two things.
+That is, they use successive operations of addition, multiplication, etc. to create ciphertext. 
+
+We call these schemes Partially Homomorphic since their operations cannot be performed simultaneously. 
+
+
+\newline
+In contrast, FHE schemes are not limited to a single operation and can simultaneously compute any number of arbitrary operations. A doubly homomorphic encryption system means a computer can use encrypted to derive boolean logic circuits, if this is possible we can make any arbitrary program to run on these bits.
+
+
+Cloud Outsourcing 
+
+
+\section{Ideal Lattice-based Cryptography}
+The additional application areas and ease of implementation due to ideal ring structure is convenient, the choice of ring its self is as important as the problem it is based upon. An advantage of Ring-LWE is its much smaller set of keys; the ring allows for more efficient and larger ranges in application areas. 
+
+Ideal Ring-LWE allows an even broader range of applications and efficiency than RLWE due to the additional structure provided by the principal ideals.
+
+\subsection{Ring-LWE}
+
+\subsection{Implementations of Ideal Ring Lattice Cryptosystems}
+
+\subsubsection{Gentry's Scheme}
+[Gen2009] Was the first successful construction fully homomorphic encryption scheme In 2009 Craig Gentry constructed the first cryptographic system capable of evaluating arbitrary operations. The scheme was constructed over a principal ideal lattice [Gen2009] uses a bootstrap method to prove its security.
+Definition: Bootstrap Method 
+
+\subsubsection{Smarts Scheme}
+
+\subsubsection{Peikerts Scheme}
+
+\subsection{Principal Ideal Lattice Insecurities}
+
+The cyclotomic field of characteristic two infers so many convenient
+structures it is often chosen without consideration to any other ring \textbf{TODO: Insert Citation}.
+
+A recent discovery by GCHQ in their own construction, and verified by Peikert
 (GATech) in the later part of this year; is that for these rings the
 mere guarantee of a short basis reduces the security of the
 construction to the easy case, allowing the lattice to be efficiently
-decoded, leaving the private key exposed. All cryptographic schemes
-such as RSA, El Gamal, etc. must satisfy the requirements of semantic
-security, specifically they must satisfy the Indistinguishable Chosen
-Plaintext Attack (IND-CPA) requirement. Cryptologists have spent a
-great deal of their time removing the natural homomorphisms from most
-schemes like RSA. While at the same time wishing for a doubly
-homomorphic system. So why would anyone want a doubly homomorphic
-encryption system? A doubly homomorphic encryption system would mean I
-can use binary to derive boolean logic circuits, if I can do this I can
-write any arbitrary program to run on encrypted bits (even Mario Cart).
-However, there are situations which can occur where the semantic
-security definition is satisfied but an insecurity still occurs. One
-such instance is the case where you encrypt your own private key. This
-situation is called circular security, and it actually happens pretty
-often.
+decoded, leaving the private key exposed.
 
-Define 
-Example 
-Use Cases 
-Cloud Outsourcing 
-Ajtai's Discovery 
-Learning with Errors (LWE) 
-LWE, has a quantum reduction from SVP. LWE forms the basis of security for many other algorithms which gain SVP as basis for their own security. [SV10] is a special case. While ideal rings provide many benefits due to their structure, the choice of ring is as
-important as the choice of base problem. 
-Definition 
-Example 
-Regev's Average-Worst Case Hardness Connection 
-Ring LWE 
-The additional application areas and ease of implementation due to ideal ring structure is convenient, the choice of ring its self is as important as the problem it is based upon. An
-advantage of Ring-LWE is its much smaller set of keys; the ring allows for more efficient and larger ranges in application areas. 
-Ideal Lattice-based Cryptography 
-Ideal Ring-LWE allows an even broader range of applications and efficiency than RLWE due to the additional structure provided by the principal ideals. 
-Gentrys Scheme [Gen2009] 
-Provides a contrast in terms of efficiency for models following it. This allows us a convenient way to show the reader how quickly the research progresses in this area. 
-[Gen2009] Was the first successful construction fully homomorphic encryption scheme In 2009 Craig Gentry constructed the first cryptographic system capable of evaluating arbitrary operations. The scheme was constructed over a principal ideal lattice [Gen2009] uses a bootstrap method to prove its security.
-Definition: Bootstrap Method 
-Smarts Scheme 
-Peikerts Scheme 
-Greedy Problem Management 
+\section{Greedy Problem Management}
+
 Insert Quote by Regev about Principal Ideal Lattice schemes being greedy 
 Discuss Efficiency/Security Balancing
-FORMAT
+
