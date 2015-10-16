@@ -1,0 +1,40 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+
+\makeatletter
+\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
+\makeatother
+
+\begin{document}
+%\subsection{Soliloquy Construction}
+\\
+\begin{tcolorbox}
+If $p\mathcal{O}$ is a product of prime ideals $\mathcal{P}_{i}$ with representation: \\ 
+$$\mathcal{P}_{i} = p\mathcal{O} + (\zeta-c_{i}) \mathcal{O},$$ 
+\\ where the $c_{i}$ are the non-trivial $n_{th}$ roots of unity mod $p$. 
+\\ \\ 
+Since the Galois group $Gal(K/\mathbb{Q}),$ gives a permutation of prime ideals $\mathcal{P}_{i}$, by a reordering of the coefficients $a_{i}$, 
+\\
+(\textit{i.e. taking some Galois conjugate of} $\mathit{\alpha}$), we can ensure $ \alpha \mathcal{O} = \mathcal{P} $. 
+\\ \\
+We have obtained a natural homomorphism \\ $$\psi : \mathcal{O} \rightarrow \mathcal{O}/\mathcal{P} \simeq \mathbb{F}_{p}$$ such that: 
+\\
+$$ \psi(\epsilon) = \psi \left( \sum_{i=1}^{n}e_{i}c^{i} \right) = \sum_{i=0}^{n} e_{i}c^{i}\imod{p}=z. $$
+\\ \\ 
+
+\subsection{Encryption \& Decryption}
+\\
+\subsubsection{Encryption}
+\\
+The encryption function is:
+$$ \psi(\epsilon) = \psi \left( \sum_{i=1}^{n}e_{i}c^{i} \right) = \sum_{i=0}^{n} e_{i}c^{i}\imod{p}=z. $$
+\\
+The ephemeral\footnote{Emphemeral keys are key which are (usually)  generated each time the key generation process is executed. } key $\epsilon$ is sampled from the ring of integers $\mathcal{O}$, where the coefficients are sampled with a mean value of zero, the encrypted output $z$, is a positive rational number.
+\\ \\
+\subsubsection{Decryption}
+\\
+To decrypt $\epsilon$, we use the closest integer function $\epsilon = \lceil z \rfloor [z\alpha^{-1}\cdot \alpha]$
+\end{tcolorbox}
+\end{document}
