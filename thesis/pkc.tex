@@ -1,0 +1,35 @@
+\section{Cryptographic Primitives \& Public Key Cryptography}
+
+
+Public Key Cryptography (PKC) solves the problem of how to enable two people who have never met to but need to communicate securely over insecure channels. 
+ 
+
+Public-key depends on the following assumptions: 
+\begin{enumerate}
+ \item In the forward direction, we assume there exists a one-way function which is easy to compute.
+ \item In the reverse direction, we assume that the same function is hard to invert. 
+ \end{enumerate}
+ 
+ 
+ 
+\textbf{INSERT PKC DIAGRAM}
+
+\subsection{Asymmetric \& Symmetric Cryptography} 
+
+The concepts of symmetric and asymmetric cryptographic-key schemes are given below as independent forms. However, it is rarely the case that these schemes will be applied in this manner particularly in a Public-key asymmetric system.
+
+\subsubsection{Symmetric-key Cryptography} 
+
+In cannonical symmetric-key schemes only one key is generated for both the encryption and decryption algorithms. Symmetric-keys must therefore be exchanged over secure channels where both communicating parties have agreed in advance to the method of encryption and have exchanged secret keys. 
+\newline
+Formally, we say the two parties are in possesion of a \textit{shared secret} and each party is mutually, as well as equally responsible for the maintenance of the secret which establishes and secures their communications. 
+In certain contexts this method can be made to be as secure as an asymmetric key system its main drawback is the shared secret which has the ability to invalidate the integrity of communications if either party is compromised.
+\newline
+Additionally since the method requires a secure channel as well as a shared secret both parties must know they will have a need for encrypted communication in advance and negotiate the means of transmission and key exchange prior to communicating. This means the parties must know each other prior to communicating. 
+
+\subsubsection{Asymmetric-key Cryptography}
+In contrast symmetric-key schemes are determined by two sets of keys one for each party. Each set consists of a private key known only to the owner and a public key which can be widely distributed.
+Public-key uses a one-way function as its public key; this function is easy to compute but hard to invert and is available publicly for use as an encryption method for the key owner. A second key called the private key is known only to the key owner; this key is a trapdoor function which can invert a ciphertext back to its plaintext form.
+ 
+\subsubsection{Connecting Symmetric \& Asymmetric Cryptography}
+It seems at first glance that asymmetric and symmetric cryptosystems are isolated methods of encryption. However, symmetric encryption is well-suited for the task of assisting asymmetric key schemes not only for efficiency purposes but also in the role of key management. 

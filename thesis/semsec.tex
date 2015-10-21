@@ -1,0 +1,45 @@
+\section{Provable Security} 
+
+
+\subsection{Semantic Security: Defining Security with Games} 
+
+\textbf{Goldwasser \& Micali's: Mental Poker and Partial Information} 
+\bigskip
+
+Semantic Security was a game proposed by Goldwasser and Micali in their 1982 paper entitled: \textit{"Probabilistic Encryption /& How to Play Mental Poker Keeping Secret All Partial Information"} \bibitem{Gol1982}
+\newline
+
+\newline
+The Mental Poker game was based on the implementation of the Diffie-Hellman construction of RSA by Rivest, Shamir, Adelman, and Rabin.
+\footnote{Specifically, [Rab1979] Rabin's 1979 Technical Memo \textit{"Digitalized Signatures and Public-key Functions as Intractable as Factorization"}}
+\footnote{[Riv1978] Rivest, Shamir, and Adelmans paper from Publications of the ACM, February 1978 \textit{"A Method for Obtaining Digital Signatures and Public Key Cryptosystems."}}
+\newline
+\textbf{TO-DO: INSERT CITATIONS TO REFS: [Rab1979], [Riv1978]}
+
+\textbf{Formal Definition:}
+\newline
+\bibitem{Gol1982} Proposed the following property for any implementation of a Diffie-Hellman Public-key Cryptosystem:  \textit{"An adversary, who knows the encryption of an algorithm and is given the cypher text, cannot obtain any information about the cleartext."} \footnote{\bibitem{Gol1982} Pg.1, Paragraph 1, Lines 3-6} 
+
+\newline
+
+\textbf{Informally:}
+\newline
+A given cryptographic scheme is considered insecure if it is possible for an adversary to recover any information about the plaintext, using the ciphertext, but without knowing the private key. That is, if it is feasible for the adversary to find out some information about the plaintext of the message or recover useful information about the plaintext of the message by manipulating the ciphertext in a reasonable amount of time, 
+%(before he dies of old age or the heat death of the universe occurs) then the cryptosystem that created those ciphertext messages (is broke as shit) is insecure. \textit{Kristi fix this wtf dude…}
+
+\subsubsection{Weaknesses in the Assumptions of RSA} 
+\newline
+
+Goldwasser and Micali pointed out that the security assumptions given in \[Riv1978\] and \[Rab1979\] had some particularly significant weaknesses that could not be assumed lightly. Namely,
+
+\begin{itemize} 
+\item \textbf{Assumption 1:} Security of the RSA system is based on the intractability of the number theoretic problems of factorization, index finding, and the decision problem of whether or not a number is a quadratic residue with respect to a composite modulus. 
+\newline 
+This assumption states that the impossible hardness of one of these problems is equivalent to RSA being computationally infeasible. 
+\item \textbf{Assumption 2:} The second assumption is that there exists a trapdoor function $f(x)$ that is easily computed, while $x$ is not easily computed from $f(x)$ unless some additional information is known. 
+\newline However, Not all hard problems are as hard as other hard problems. \newline In particular, RSA is based on the assumption that factoring large composites is a hard problem. 
+\newline However, not all large composite numbers are hard to factor in fact some are quite easy. For example, if $c$ is a composite such that $c=qp$ for primes $p$ and $q$ then if $p$ and $q$ are close enough together we have some assurances they will be easily factorable. 
+\newline
+\item \textbf{TODO: INSERT FORMULA}
+\newline
+\end{itemize} 
