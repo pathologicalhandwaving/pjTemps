@@ -2,7 +2,7 @@
 % nskinkel@iastate.edu
 % 2015
 
-\documentclass[12pt,a4paper]{report}
+\documentclass[10pt,a4paper]{report}
 \usepackage[pdftex]{graphicx}
 \usepackage{url}
 \usepackage[bookmarks,
@@ -13,9 +13,15 @@
             pdfsubject={<subject here>},
             pdfkeywords={<keywords here>}]{hyperref}
 \usepackage{appendix}
+<<<<<<< HEAD
 \usepackage[toc,xindy]{glossaries}% uncomment if you have xindy
 %\usepackage[toc]{glossaries}
 
+=======
+\usepackage[toc,xindy]{glossaries} % Have xindy Make sure have xindy again after wipe
+%\usepackage[toc]{glossaries}
+\usepackage{amsmath, amssymb, amsthm}
+>>>>>>> f1f8f695532a6b6ee5aff9bf8551fb25157b66cc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %
@@ -27,7 +33,7 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{proposition}{Proposition}
 \newtheorem{definition}{Definition}
-\newenvironment{proof}{{\sc Proof:}}{~\hfill QED}
+%\newenvironment{proof}{{\sc Proof:}}{~\hfill QED}
 
 \makeglossaries
 

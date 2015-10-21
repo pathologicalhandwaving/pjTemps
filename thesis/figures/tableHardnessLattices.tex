@@ -1,0 +1,24 @@
+% Table: Hardness and Complexity of Lattice Constructions
+
+\begin{table}
+\begin{tabular}{l c c c c c} 
+& \multicolumn{5}{c}{Hardness \& Complexity of Lattice Problems} \\
+\cmidrule(l){2-6} 
+Problem & Base & Base Complexity & Average/Worst & Public Keysize & Quantum Algorithm\\ 
+\midrule 
+LWE & SVP & NP & Worst & $\tilde{O}(n^{2})$ & $2^{O(nlogn)}$\\ % Content row 1
+R-LWE & search SVP & NP & Worst & $\tilde{O}(\sqrt{n})$ & $2^{\Omega(n)}$\\ % Content row 2
+IR-LWE & SIVP & NP & Worst &  $ {\tilde {O}}(n) $  & $2^{\Omega(n)}$\\ % Content row 3
+RLWE-HOM & R-LWE & NP & Worst & Ind-Poly* & $O(2^{n^{\epsilon}})$\\ % Content row 4
+Gen09 & SSSP & NP & Worst & Wide Ranging* & $2^{n/\gamma subset(n)}$\\ % Content row 5
+SV10 & PCP & P* & - & 2.3 GB & -\\ % Content row 6
+\midrule % In-table horizontal line
+%\midrule % In-table horizontal line
+%\bottomrule % Bottom horizontal line
+\end{tabular}
+\caption{Comparison of Cryptosystems based on the \"Learning with Errors\" problem. RLWE-HOM is an FHE construction with a high degree of efficiency; the public key size of this construction is made to be independent of the problems polynomials. Gen09 is not an LWE problem and does have its base of security in SVP; it's security is constructed using a series of increasingly difficult problems in a bootstrap process before finally arriving at the Sparse Subset Sum Problem (SSSP).} % Table caption, can be commented out if no caption is required
+%\label{tab:compareLWE} 
+\end{table}
+
+%Table \ref{tab:compareLWE} LWE \& FHE Comparisons.
+\end{document}

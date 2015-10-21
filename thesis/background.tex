@@ -1,0 +1,249 @@
+\chapter{Background}
+
+\section{Cryptographic Construction Types}
+
+\subsection{Cryptographic Primitives /& Public Key Cryptography}
+
+\subsubsection{Problem solved by PKC}
+
+Public Key Cryptography (PKC) solves the problem of how to enable two people who have never met to but need to communicate securely over insecure channels. 
+ 
+
+Public-key depends on the following assumptions: 
+\begin{enumerate}
+ \item In the forward direction, we assume there exists a one-way function which is easy to compute.
+ \item In the reverse direction, we assume that the same function is hard to invert. 
+ \end{enumerate}
+ 
+ 
+ 
+ 
+\textbf{insert PKC Diagram}
+
+\subsubsection{Asymmetric & Symmetric Cryptography} 
+
+The concepts of symmetric and asymmetric cryptographic-key schemes are given below as independent forms. However, it is rarely the case that these schemes will be applied in this manner particularly in a Public-key asymmetric system.
+
+\subsubsubsection{Symmetric-key Cryptography} 
+
+In cannonical symmetric-key schemes only one key is generated for both the encryption and decryption algorithms. Symmetric-keys must therefore be exchanged over secure channels where both communicating parties have agreed in advance to the method of encryption and have exchanged secret keys. 
+\newline
+Formally, we say the two parties are in possesion of a \textit{shared secret} and each party is mutually, as well as equally responsible for the maintenance of the secret which establishes and secures their communications. 
+In certain contexts this method can be made to be as secure as an asymmetric key system its main drawback is the shared secret which has the ability to invalidate the integrity of communications if either party is compromised.
+\newline
+Additionally since the method requires a secure channel as well as a shared secret both parties must know they will have a need for encrypted communication in advance and negotiate the means of transmission and key exchange prior to communicating. This means the parties must know each other prior to communicating. 
+
+\subsubsubsection{Asymmetric-key Cryptography}
+In contrast symmetric-key schemes are determined by two sets of keys one for each party. Each set consists of a private key known only to the owner and a public key which can be widely distributed.
+Public-key uses a one-way function as its public key; this function is easy to compute but hard to invert and is available publicly for use as an encryption method for the key owner. A second key called the private key is known only to the key owner; this key is a trapdoor function which can invert a ciphertext back to its plaintext form.
+ 
+\subsubsection{Connecting Symmetric /& Asymmetric Cryptography}
+It seems at first glance that asymmetric and symmetric cryptosystems are isolated methods of encryption. However, symmetric encryption is well-suited for the task of assisting asymmetric key schemes not only for efficiency purposes but also in the role of key management. 
+
+\section{Provable Security} 
+
+\textbf{SHOULD POSSIBLY MERGE WITH THE HARDNESS ASSUMPTIONS SECTION} 
+
+\subsection{Defining Security with Games} 
+
+\subsubsection{Semantic Security: Mental Poker and Partial Information} 
+
+Semantic Security was a game proposed by Goldwasser and Micali in their 1982 paper entitled: \textit{"Probabilistic Encryption /& How to Play Mental Poker Keeping Secret All Partial Information"} 
+\newline
+\textbf{INSERT CITE-KEY:} 
+%@inproceedings{Goldwasser:1982:PEA:800070.802212, author = {Goldwasser, Shafi and Micali, Silvio}, 
+%title = {Probabilistic Encryption /& How to Play Mental Poker Keeping Secret All Partial Information}, 
+%booktitle= {Proceedings of the Fourteenth Annual ACM Symposium on Theory of Computing}, 
+%series = {STOC '82}, 
+%year ={1982}, 
+%isbn = {0-89791-070-2},
+%location = {San Francisco, California, USA}, 
+%pages = {365--377},
+%numpages = {13}, 
+%url = {http://doi.acm.org/10.1145/800070.802212}, 
+%doi= {10.1145/800070.802212}, 
+%acmid = {802212}, 
+%publisher = {ACM}, 
+%address= {New York, NY, USA}, }} 
+\newline
+The Mental Poker game was based on the implementation of the \textbf{TO-DO add gloss} Diffie-Hellman implementation of RSA by Rivest, Shamir, Adelman, and Rabin.
+\footnote{Specifically, [Rab1979] Rabin's 1979 Technical Memo \textit{"Digitalized Signatures and Public-key Functions as Intractable as Factorization"}}
+\footnote{[Riv1978] Rivest, Shamir, and Adelmans paper from Publications of the ACM, February 1978 \textit{"A Method for Obtaining Digital Signatures and Public Key Cryptosystems."}}
+\textbf{TO-DO: INSERT CITATIONS TO REFS: [Rab1979], [Riv1978], [Gol1982]}
+
+\textbf{Formal Definition:}
+\newline
+[Gol1982] Proposed the following property for any implementation of a Diffie-Hellman Public-key Cryptosystem:  \textit{"An adversary, who knows the encryption of an algorithm and is given the cypher text, cannot obtain any information about the cleartext."} \footnote{[Gol1982] Pg.1, Paragraph 1, Lines 3-6} 
+
+\newline
+
+\textbf{Informally:}
+\newline
+A given cryptographic scheme is considered insecure if it is possible for an adversary to recover any information about the plaintext, using the ciphertext, but without knowing the private key. That is, if it is feasible for the adversary to find out some information about the plaintext of the message or recover useful information about the plaintext of the message by manipulating the ciphertext in a reasonable amount of time, 
+%(before he dies of old age or the heat death of the universe occurs) then the cryptosystem that created those ciphertext messages (is broke as shit) is insecure. \textit{Kristi fix this wtf dude…}
+
+\subsubsection{Weaknesses in the Assumptions of RSA} 
+\newline
+
+Goldwasser and Micali pointed out that the security assumptions given in [Riv1978] and [Rab1979] had some particularly significant weaknesses that could not be assumed lightly. Namely,
+
+\begin{itemize} 
+\item \textbf{Assumption 1: Security of the RSA system is based on the intractability of the number theoretic problems of factorization, index finding, and the decision problem of whether or not a number is a quadratic residue with respect to a composite modulus. \newline This assumption states that the impossible hardness of one of these problems is equivalent to RSA being computationally infeasible. 
+\item \textbf{Assumption 2:} The second assumption is that there exists a trapdoor function $f(x)$ that is easily computed, while $x$ is not easily computed from $f(x)$ unless some additional information is known. \newline However, Not all hard problems are as hard as other hard problems. \newline In particular, RSA is based on the assumption that factoring large composites is a hard problem. \newline However, not all large composite numbers are hard to factor in fact some are quite easy. For example, if $c$ is a composite such that $c=qp$ for primes $p$ and $q$ then if $p$ and $q$ are close enough together we have some assurances they will be easily factorable. 
+\newline
+\item \textbf{TODO: INSERT FORMULA}
+\newline
+\end{itemize} 
+
+\section{Equivalent and Stronger Definitions for Security} 
+
+All cryptographic schemes such as RSA, El Gamal, etc. must satisfy the requirements of semantic
+security, specifically they must satisfy the Indistinguishable Chosen Plaintext Attack (IND-CPA) requirement.
+
+\begin{itemize}
+\item \textbf{IND-CPA} IND-CPA says if an attacker can choose any plaintext and obtain the corresponding ciphertext, then if the system is secure this information does not help them find the private key. However, the issue with CPA is that it depends on the choices of an adversary who is unaware of the secret key. i.e. If the
+attacker has two messages then they have no idea if either one contains the key since they don't know what the key is. 
+\newline 
+In application this classififcation is not sufficient (weakly sufficient) to ensure secure communication. There are situations which occur where the semantic security definition is satisfied but an insecurity still occurs. One
+such instance is the case where the user might encrypt their own private key. 
+\newline 
+By IND-CPA the user can encrypt their private-key but the scheme may return the private-key unencrypted. 
+\newline 
+By the definition of IND-CPA this action is still classified as secure, even though the scheme has blatantly revealed the users private key. 
+\newline
+
+\textbf{TODO: INSERT MATHS DEFINITION AND FORMULA}
+
+\item \textbf{IND-CCAI} 
+\textbf{TODO: INSERT SECTION}
+\item \textbf{IND-CCAII}
+\textbf{TODO: INSERT SECTION}
+\end{itemize}
+
+\section{InfoSec /& it's Objectives} 
+
+\subsection{Base Security Objectives}
+
+There are four basic security objectives that must be considered when constructing any system concerned with securing data or information. These four basic definitions allow for the derivation of all other security objectives which may or may not be necessary to ensure the security of information for a given system.
+
+\begin{itemize}
+\item \textbf{Confidentiality:} The objective of confidentiality ensures that unauthorized users will not be purposefully (or accidentally) give access to resources protected by the system. 
+\item \textbf{Integrity:} Ensures that the resources are preserved, used, and appropriately maintained throughout their life-cycle under the system. That is, any data is not alterable in an undetectable manner, retains the same
+accuracy as its created date (or registered modification date), and is complete with respect to its creation and activity log. 
+\item \textbf{Availability:}
+\item \textbf{Non-repudiation:} 
+\end{itemize}
+
+\subsubsection{Derived Security Objectives}
+
+Each implementation of a scheme requires a flexible set of security objectives which are dependent upon the context the system and it's users will employ \textbf{TODO:change wording}. The base definitions for the objectives allow the derivation of all other security objectives.
+
+\newline
+\textbf{TODO: INSERT TABLE (it is in figures)}
+\newline
+\section{Formal Security Reduction} 
+\textbf{TODO: INSERT SECTION}
+\textbf{Definition}
+\textbf{TODO: INSERT SECTION}
+\textbf{TODO: INSERT FORMULA}
+
+\section{Hardness Assumptions} 
+
+\subsection{Average-case}  
+We say a cryptographic algorithm or cryptosystem has average-case hardness if: 
+Informally: The mathematical problem the algorithm (or system of
+algorithms) is based on cannot be solved in polynomial time by a
+standard computer with a slightly more than reasonable amount of resources. 
+\newline
+More-formally: If a key is chosen at random, then there is no probabilistic polynomial time algorithm that solves the mathematical problem for some non-negligible probability. 
+
+\subsection{Best-case}
+
+\subsection{Worst-case} 
+For an average-case security proof we are assured the mathematical problem
+the scheme is based on cannot be solved by a classical computer system in polynomial time in all except a negligible set of its random functional instances.
+A worst-case security proof carries all the security given by the average-case, but it also covers the small set of functional instances the average-case counts as negligible. 
+\newline
+Informally, a worst-case security proof takes the functional instance which is
+hardest to solve and shows the scheme is as least as strong as that
+instance, since there are no harder instances, there does not exist
+a computer which can solve its mathematical problem in polynomial time.
+
+\section{Post-quantum cryptography} 
+The need for new cryptographic systems developed after Peter Shorr proved that the classical number-theoretic schemes could be "easily" broken by quantum computers. Quantum systems are capable of running algorithms which provide solutions to the mathematical problems the classical schemes base their security reductions on. The development of quantum computing lead to a new area of cryptography called post-quantum cryptography. 
+\newline 
+Post-quantum cryptography is necessarily distinct from quantum cryptography it's concern is finding and implementing schemes which are secure against quantum-based attacks.
+\newline 
+Not to be confused with Quantum-cryptography which uses quantum computers to find and implement new quantum cryptosystems.
+
+\section{Lattice-based Cryptography} 
+Lattice-based Cryptosystems are a subclass of Post-quantum cryptosystems. A worst-case security proof for a lattice based scheme not only claims security against attacks from classical (current) computer systems, but quantum as well. The drawback is these not as efficient (yet) as other more well known schemes. However, lattice-based schemes claim a unique benefit that other post-quantum schemes do not. 
+
+\subsection{Ajtai's Average-Worst Case Hardness Connection}
+
+\subsection{Learning with Errors (LWE)}
+
+LWE, has a quantum reduction from SVP. LWE forms the basis of security for many other algorithms which gain SVP as basis for their own security.
+ 
+ 
+\subsection{Fully Homomorphic Encryption} 
+Lattice-based schemes have the potential of providing Fully Homomorphic Encryption to a given cryptosystem. 
+The problem which FHE solves is only slightly different than that of PKC. We want to take our encrypted data, send it to an unauthorized party for processing, 
+and receive the same results we would get if we had never encrypted it.
+\newline
+Cryptologists have spent a great deal of their time removing the natural homomorphisms from most schemes like RSA. While at the same time wishing for a doubly homomorphic system. 
+
+
+\newline
+
+\subsubsection{Homomorphic Properties of Cryptographic Schemes} 
+Many classical public key cryptography methods have a homomorphic property, this property says if add two things together then their sum contains information about those two things.
+That is, they use successive operations of addition, multiplication, etc. to create ciphertext. 
+We call these schemes Partially Homomorphic since their operations cannot be performed simultaneously. 
+
+Unpadded RSA has this homomorphic property, if we take two RSA messages (ciphertext) which have been encrypted with unpadded RSA, and we multiply them together when we decrypted them we will find that this product contains the two original ciphertexts as subgroups, or embeds the ciphertexts. We say the ciphertexts are homomorphic to modular multiplication. 
+
+RSA and other classical schemes can only evaluate data over the operation they are defined to work on, such as multiplication or addition. 
+
+In cryptography we say a scheme that has this property is malleable and it is not always a good property for the scheme to have. Malleable means that an attacker can change an encrypted message, decrypt it and gain useful information. Lets say that you send 5$ to Eve, then Eve can get enough information to put two zeros behind the five and suddenly you’ve just given Eve 500/$ instead. 
+
+\newline
+FHE schemes are not limited to a single operation and can simultaneously compute any number of arbitrary operations. 
+
+All computers operate by using trillions upon trillions of boolean circuits. Boolean circuits are special cases of propositional formulas, truth tables, where the only output ever given by the system is either yes or no; in computer terms zero or one. 
+
+Boolean circuits have three basic functions from which the rest can be derived, they are AND, OR, and NOT. You can combine these two of functions to get a total set of sixteen different boolean functions. Engineers have been using these functions for ages, but cryptographers were stuck with one. 
+
+Cloud Outsourcing 
+
+
+\section{Ideal Lattice-based Cryptography}
+The additional application areas and ease of implementation due to ideal ring structure is convenient, the choice of ring its self is as important as the problem it is based upon. An advantage of Ring-LWE is its much smaller set of keys; the ring allows for more efficient and larger ranges in application areas. 
+
+Ideal Ring-LWE allows an even broader range of applications and efficiency than RLWE due to the additional structure provided by the principal ideals.
+
+\subsection{Ring-LWE}
+
+\subsection{Implementations of Ideal Ring Lattice Cryptosystems}
+
+\subsubsection{Gentry's Scheme}
+[Gen2009] Was the first successful construction fully homomorphic encryption scheme In 2009 Craig Gentry constructed the first cryptographic system capable of evaluating arbitrary operations. The scheme was constructed over a principal ideal lattice [Gen2009] uses a bootstrap method to prove its security.
+Definition: Bootstrap Method 
+
+\subsubsection{Smarts Scheme}
+
+\subsubsection{Peikerts Scheme}
+
+\subsection{Principal Ideal Lattice Insecurities}
+
+The cyclotomic field of characteristic two infers so many convenient structures it is often chosen without consideration to any other ring \textbf{TODO: Insert Citation}.
+
+In 2010 at the Public Key Cryptography Conference two researchers Smart and Veracauteren [SV10] introduced another ideal lattice scheme promising fully homomorphic encryption and quantum assumption hardness proofs. In late 2014 GCHQ (Government Communications Head Quarters) announced that it had been working on such a scheme, nearly identical to [SV10] and claimed that not only was it easy to solve using a quantum computer but was subexponential for classical computer systems as well. The attack did not directly apply to most constructions of lattice-based schemes only a handful who had used ideal lattices in the cyclotomic field of characteristic two, where the private keys were represented by principal ideals which were short generators. 
+
+A team of researchers Ronald Cramer, Leo Ducas, Chris Peikert, and Oded Regev [Cra15] who had prior to CESG announcement strongly encouraged new constructions in other fields quickly proved CESG’s claim. Moreover, they proved that in cyclotomic fields with dimensions of prime power order which guaranteed existence of a ‘short’ generator the lattice could always be efficiently decoded revealing the private key.
+
+\section{Greedy Problem Management}
+
+Insert Quote by Regev about Principal Ideal Lattice schemes being greedy 
+Discuss Efficiency/Security Balancing
+

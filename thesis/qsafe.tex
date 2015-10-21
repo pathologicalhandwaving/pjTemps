@@ -1,0 +1,37 @@
+\section{Quantum-safe Cryptography}
+
+In order to break a cryptographic system within a formal attack model from random instances you must solve the mathematical problem it relies on in the worst-case. A sufficiently large general purpose quantum computer can "easily" solve the three typical mathematical problems. The solutions can be found using Shorr’s algorithm.
+
+The first example of a quantum computer is the D-Wave quantum annealing computer. The D-Wave is advertised as 
+\textit{"The world's first commercially available quantum computer"}. 
+\newline 
+In 2013 Google, NASA Ames, and the Universities Space Research Association collaborated in a purchase of a subclass of the quantum annealing computer called an adiabatic quantum computer. \newline 
+D-Wave systems are not general purpose quantum computers, and they don't try to be. 
+\newline 
+The D-Wave systems were created as special purpose quantum computers to solve the optimization problem of finding ground states of a classical Ising spin glass. 
+\newline  
+The systems do not run most quantum algorithms. In particular, they do not run Shorr’s.
+Shorr’s requires a general purpose quantum computer. 
+\newline 
+A general purpose quantum computer is one that is capable of carrying out a set of standard quantum operations in any order it is told.
+\textit{There do not at this point in time exist any general purpose quantum computers.} 
+\newline
+However, researchers working towards the development of such systems estimate success in the next decade; barring of course any unforeseen major barriers.  
+\newline 
+With these developments in mind it would be very poor risk management to delay development of quantum resistant cryptosystems and assume the longer time frame. It is quite plausible that not all developments are within public knowledge. 
+
+\subsection{Considerations When Choosing a Cryptosystem Replacement}
+
+There are two main considerations for choosing a particular replacement scheme. 
+\newline 
+The first is the environment which will be used to transmit the keys.  
+Not all environments are suited to the same types of schemes.
+
+Keys which will be transmitted over open network environments are better served by public key schemes. 
+These schemes also allow parties who have never met before or who have never shared keys to communicate securely over open networks such as the Internet.  
+Symmetric keys are the oldest type of encryption, characterized by private keys shared between parties which must be kept secret. 
+Symmetric key need for secrecy makes these schemes inherently ill-suited for open network environments. 
+
+The other consideration is a concept called Perfect Forward Secrecy.
+
+Schemes enabled with Perfect Forward Secrecy come with the assurance that if one message is compromised it will not lead to other messages also being compromised.
