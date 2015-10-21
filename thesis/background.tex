@@ -31,7 +31,7 @@ By the definition of IND-CPA this action is still classified as secure, even tho
 \textbf{TODO: INSERT SECTION}
 \end{itemize}
 
-\section{InfoSec /& it's Objectives} 
+\section{InfoSec Objectives} 
 
 \subsection{Base Security Objectives}
 
@@ -50,7 +50,7 @@ accuracy as its created date (or registered modification date), and is complete 
 Each implementation of a scheme requires a flexible set of security objectives which are dependent upon the context the system and it's users will employ \textbf{TODO:change wording}. The base definitions for the objectives allow the derivation of all other security objectives.
 
 \newline
-\textbf{TODO: INSERT TABLE (it is in figures)}
+\input{TableDerivableSecurityObjectives.tex}
 \newline
 \section{Formal Security Reduction} 
 \textbf{TODO: INSERT SECTION}
@@ -116,7 +116,7 @@ Unpadded RSA has this homomorphic property, if we take two RSA messages (ciphert
 
 RSA and other classical schemes can only evaluate data over the operation they are defined to work on, such as multiplication or addition. 
 
-In cryptography we say a scheme that has this property is malleable and it is not always a good property for the scheme to have. Malleable means that an attacker can change an encrypted message, decrypt it and gain useful information. Lets say that you send 5$ to Eve, then Eve can get enough information to put two zeros behind the five and suddenly you’ve just given Eve 500/$ instead. 
+In cryptography we say a scheme that has this property is malleable and it is not always a good property for the scheme to have. Malleable means that an attacker can change an encrypted message, decrypt it and gain useful information. Lets say that you send 5\$ to Eve, then Eve can get enough information to put two zeros behind the five and suddenly you’ve just given Eve 500\$ instead. 
 
 \newline
 FHE schemes are not limited to a single operation and can simultaneously compute any number of arbitrary operations. 
