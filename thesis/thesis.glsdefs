@@ -1,0 +1,30 @@
+\ifglsentryexists{cryptosystem}{}%
+{%
+\gls@defglossaryentry{cryptosystem}%
+{%
+name={cryptosystem},%
+sort={cryptosystem},%
+type={main},%
+first={cryptosystem},%
+firstplural={cryptosystems},%
+text={cryptosystem},%
+plural={cryptosystems},%
+description={A cryptosystem is a set of algorithms},%
+descriptionplural={A cryptosystem is a set of algorithms},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
