@@ -62,18 +62,24 @@ The cryptosystem performs it's functions in the following order:
 First, Alice and Bob use $Gen$ to produce a shared secret key $k$.
 \newline
 Whenever Bob wishes to send a message $m$ to Alice (or Alice to Bob) he inputs $(m,k)$ into $Enc$ to get a ciphertext of the message $c$.
-$$c \coloneqq* Enc_{k}(m)$$
+$$c \coloneqq Enc_{k}(m)$$
 \newline
 When Alice recives the ciphertext $c$ from Bob she inputs both $(c,k)$ into the decryption function and gets back the plaintext message $m$.
-$$Dec_{k}(c) \coloneqq* m$$.
+$$Dec_{k}(c) \coloneqq m$$.
+\medskip
 
-
+To ensure the cryptosystem is correct, that is that it holds \textit{for every} message key pair $(k,m) : k \in \mathcal{K} \& m \in \mathcal{M}$ you must show that using the key on a ciphertext outputs the correct message. 
+$$Dec_{k}(Enc_{k}(m)) = m$$
+\newline
+$$Dec_{k}(c) = m : Enc_{k}(m) = c$$
 
 
 
 \subsubsection{Asymmetric-key Cryptography}
 In contrast symmetric-key schemes are determined by two sets of keys one for each party. Each set consists of a private key known only to the owner and a public key which can be widely distributed.
 Public-key uses a one-way function as its public key; this function is easy to compute but hard to invert and is available publicly for use as an encryption method for the key owner. A second key called the private key is known only to the key owner; this key is a trapdoor function which can invert a ciphertext back to its plaintext form.
+
+
  
 \subsubsection{Connecting Symmetric \& Asymmetric Cryptography}
 It seems at first glance that asymmetric and symmetric cryptosystems are isolated methods of encryption. However, symmetric encryption is well-suited for the task of assisting asymmetric key schemes not only for efficiency purposes but also in the role of key management. 
