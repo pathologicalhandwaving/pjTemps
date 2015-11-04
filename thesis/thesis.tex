@@ -1,10 +1,10 @@
-% Nik's template
-% nskinkel@iastate.edu
+% K.M.S. 
+% kshort@iastate.edu
 % 2015
+
 
 \documentclass[10pt,a4paper]{report}
 \usepackage[pdftex]{graphicx}
-\usepackage{url}
 \usepackage[bookmarks,
             colorlinks=false,
             pdfborder={0 0 0},
@@ -13,47 +13,98 @@
             pdfsubject={<subject here>},
             pdfkeywords={<keywords here>}]{hyperref}
 \usepackage{appendix}
+<<<<<<< Local Changes
+\usepackage[toc,xindy]{glossaries} 
+\usepackage[toc]{glossaries}
+=======
 \usepackage[toc,xindy]{glossaries} % Have xindy Make sure have xindy again after wipe
-%\usepackage[toc]{glossaries}
+\usepackage[toc]{glossaries}
+>>>>>>> External Changes
 \usepackage{amsmath, amssymb, amsthm}
-%\usepackage{bibtex}
+<<<<<<< Local Changes
+\usepackage{todonotes}
+\usepackage{amsrefs}
+=======
+>>>>>>> External Changes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %
 % % Some common theorem-ish structures to use
 % %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{proposition}{Proposition}
-\newtheorem{definition}{Definition}
-%\newenvironment{proof}{{\sc Proof:}}{~\hfill QED}
+\newtheoremstyle{bfthm}%
+{}{}%
+{\itshape}%
+{\bfseries}{.}%
+{}%
+{\thmname{#1}\thmnumber{ #2}\thmnote(#3)}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{def}{Definition}
+\newtheorem{xca}{Example}
+\newtheorem*{rem}{Remark}
+
+\newtheorem*{note}%
+{Note}% name
+{3pt}% space above
+{3pt}% space below
+{}% body font
+{}% indent amount
+{\itshape}% heading shape
+{:}% colon after heading
+{.5em}% space after colon
+{}% headspace
+
+\newtheorem{case}{Case}
+\newtheorem{con}{Construction}
+
+\todo{change documentclass}
 
 \makeglossaries
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\renewcommand\bibname{References}
+
+
+% Front Matter
 
 \include{title}
+\thispagestyle{empty}
+
 \include{abstract}
 
 \pagenumbering{roman} %numbering before main content starts
+
+
 \tableofcontents
+
 \listoffigures
+
 \listoftables
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+
+
 \pagenumbering{arabic} %reset numbering to normal for the main content
 
 \include{glossary}
 \include{introduction}
 <<<<<<< Local Changes
 \include{background}
-%\include{background}
 \include{conclusion}
+
+
+% End Matter
 \include{acknowledgements}
+
 \include{appendix}
+
 \include{bibliography}
+
+\printacronyms
 \printglossaries
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

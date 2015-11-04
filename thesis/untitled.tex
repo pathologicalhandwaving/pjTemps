@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{todonotes}
+
+\begin{document}
+	
+	
+\section{Introducing the Game}
+
+Modern cryptographic schemes can be viewed as two classes
+asymmetric-key schemes and symmetric-key schemes.
+Symmetric schemes are in general more efficient than asymetric
+schemes but have the disadvantage that keys must be agreed upon by
+parties who wish to communicate in advance. Specifically symmetric-key
+schemes require that secret keys be distributed over secure channels.
+These types of key distribution schemes are not compatible with most
+modern methods of communication over networks, which are by and large
+conducted over the internet, an insecure channel.
+
+Public-key cryptography is an asymmetric-key class of systems which
+allows parties which have never met, much less agreed upon secret keys
+in advance, to communicate privately over insecure channels (we
+continue this discussion in the background section of the text,
+briefly). The primary concern is to make communication by public key
+cryptographic schemes as efficient, secure, and easy to implement as
+those of symmetric key systems.
+
+The problem of mirroring the characteristics of symmetric key
+schemes is a difficult problem and can be considered a benchmark for
+implementation of public-key schemes.
+
+In this context use of symmetric encryption methods is often a second
+stage problem. That is, first the cryptosystem is created with some
+thought in mind to its implementation and efficiency but with more
+thought in mind to its security, particularly in the face of incoming
+or expected threats in the near future.
+
+Since the primary reason cryptography exists is to keep
+communications and information private the role of risk management is
+weighted necessarily heavier towards ensuring the fulfillment of a
+given set of security objectives.
+
+An encryption scheme however is useless unless it can be implemented
+and a balance between efficiency and security must be carefully, and
+continuously maintained throughout not only the development of the
+scheme but during its implementation as well.
+
+The balancing act between efficiency and security is illustrated in
+the first half of this paper which gives an account of the events and
+results following an unexpected announcement by British researchers in
+the Communications-Electronics Security Group (CESG) (the information
+assurance division of the Government Communications Headquarters
+(GCHQ)) in their informal report Soliloquy: A Cautionary Tale.
+
+The introduction of lattice in cryptography brought in new,
+enthusiastic researchers and propelled experienced researchers to the
+forefront whose advice, often repeated was misunderstood and in many
+instances ignored.
+It is worth explicitly stating that cryptography is inextricably bound and
+defined by its relationship with security objectives and privacy. These
+constraints not only benefit from the diversification schemes from
+their original construction, they demand it.
+
+However, as lattice cryptography increased in popularity the demand
+for diversification was so often ignored by researchers in favor of
+achieving efficiency it became increasingly difficult to find
+constructions which had not been constructed over a particular number
+field; more over research had focused not simply to this number field
+it had narrowed to the point of most constructions being defined
+specifically over the cyclotomic field of characteristic two.
+It is perhaps lucky that the discovery by the researchers at CESG was
+not only disclosed publicly (the agency does not in general reveal much
+less publish their findings), but that the defect was not found as a
+consequence of an exploit, or even more at some point in the future
+when cryptosystems having this type of construction may be widely
+implemented and assumed secure.
+
+\section{Introducing the Players}
+
+Traditionally cryptography has been a two player game between
+cryptographers and cryptanalysts. However, cryptanalysis has
+diversified over time leaving cryptographers to play defense against an
+increasingly diverse set of cryptanalysts on the offense.
+
+\subsection{Characterization of Cryptanalysts}
+
+We divide cryptanalysts into four subclasses given as a variation of
+the subclasses of cryptographic secrecy.
+We make our division in reverse order in terms of hardness as
+follows:
+
+\begin{itemize}
+\item{Practical Secrecy} In this subclass of cryptanalysts we have those
+which most frequently occur. These cryptanalysts are in possesion of
+finite computational resources but may use social, sidechannel, or
+other methods to obtain a break on a system which does not break the
+mathematics of the scheme itself, may not in the future be reproduced,
+but are sucessful in their attempt none the less.
+
+\item{Computational Secrecy} This subclass of cryptanalysts are those who
+we can assume have at their disposal more resources and are capable of
+more large scale attacks than those in the previous subclass. They are
+still in possession of all the methods of the practical cryptanalysts
+but we make the assumption that they are not working alone but as a
+well organized unit such as those of a large organization. These
+attacks are becoming more and more frequent the organization itself may
+be known to the defense but for various reasons ( including but not
+limited to political) a direct confrontation must be avoided.
+
+\item{Unconditional Secrecy} In this subclass we find those cryptanalysts
+who directly attack the mathematics of a given cryptosystem.
+Specifically we have the cryptanalysts who play against most modern
+systems based on the discrete logarithm problem, the integer
+factorization problem, and other number theoretic schemes. We limit
+this group to problems which are played over systems whose proofs of
+security are given over schemes an average-case hardness.
+
+\item{Perfect Secrecy} This is the subclass of cryptanalysts we will be
+concerned with for the remainder of this paper. These players are
+concerned with breaking the mathematics of schemes based on intractible
+problems with a provable security based on worst-case hardness
+assumptions. Specifically, we concern ourselves with the concept of
+quantum-safe cryptographic schemes over lattices.
+\end{itemize}
+
+\section{The Soliloquy Problem}
+
+In 2010 at the International Public Key Cryptography conference Smart
+and Veracauteren introduced a cryptographic scheme [Sma2010] based on
+principal ideal lattices with relatively small key sizes and promising
+to enable FHE.
+
+In late 2014 GCHQ announced that they had developed an equivalent
+cryptosystem to [Sma2010] in 2007 named Soliloquy, but from 2010 to
+2013 they had constructed a successful attack against the system and
+decided to cease development.
+
+Furthermore, they claimed (without proof) that the assumed hard
+problem of finding the short generator of a principal ideal lattice was
+both easy and efficient to solve. This conflicted with the [Sma2010]
+claim that the problem of finding a short generator was hard. In
+addition the solvability claim GCHQ was not only given for quantum
+computers but also for ordinary modern computer system with a practical
+amounts of resources.
+
+The announcement by GCHQ created quite a stir in the cryptographic
+community. The concern was due to the seeming quantum-safe properties
+of lattice based cryptosystems. Since, ideal lattice-based schemes are
+a small subset of these schemes there was a need to ensure that the
+attack did not imply similar weaknesses in the more general schemes or
+any other special cases of lattice-based schemes.
+
+\section{Overview of Paper Contents}
+
+In the first half of this paper we give an overview of fully
+homomorphic encryption (FHE) as well as describe the need for such
+systems.
+We give a summary of the history of FHE schemes and an overview of
+the first sucessful construction given by Gentrys Stanford PhD thesis
+[Gen2009] as well as the construction from [Sma2010].
+We contrast these two schemes with an overview of the more general
+construction of Peikerts RLWE and discuss the LWE problem, and the
+concept of the mathematical basis of hardness assumptions.
+We then give an overview of the quantum and general solutions proved
+since the GCHQ announcement and summarize the results found by
+researchers in the process of verification of these claims.
+In the second half of this paper we discuss the problem of verifying
+if RLWE schemes come with a connected expander graph and its
+implication that FHE is circuit private.
+
+
+
+\end{document}
