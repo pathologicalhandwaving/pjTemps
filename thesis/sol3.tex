@@ -1,27 +1,14 @@
-\documentclass[10pt]{article}
-\usepackage{amsmath}
-\usepackage{tcolorbox}
-\usepackage{amssymb}
-
-\makeatletter
-\def\imod#1{\allowbreak\mkern10mu({\operator@font mod}\,\,#1)}
-\makeatother
-
-\begin{document}
 %\subsection{Soliloquy Construction}
-\\
-\begin{tcolorbox}
+
 \subsection*{Encryption \& Decryption}
-\\ \\
+ 
 \subsubsection*{Encryption}
-\\
+
 The encryption function is:
-$$ \psi(\epsilon) = \psi \left( \sum_{i=1}^{n}e_{i}c^{i} \right) = \sum_{i=0}^{n} e_{i}c^{i}\imod{p}=z. $$
-\\
+$$ \psi(\epsilon) = \psi \left( \sum_{i=1}^{n}e_{i}c^{i} \right) = \sum_{i=0}^{n} e_{i}c^{i}\mod{p}=z. $$
+
 The ephemeral\footnote{Emphemeral keys are key which are (usually)  generated each time the key generation process is executed. } key $\epsilon$ is sampled from the ring of integers $\mathcal{O}$, where the coefficients are sampled with a mean value of zero, the encrypted output $z$, is a positive rational number.
-\\ \\
+ 
 \subsubsection*{Decryption}
-\\
-To decrypt $\epsilon$, we use the closest integer function $\epsilon = \lceil z \rfloor \lceil z\alpha^{-1}\cdot \alpha \rfloor$, which gives $\epsilon$ small enough that $\lceil \epsilon \cdot \alpha^{-1}\rfloor = 0$. \\
-\end{tcolorbox}
-\end{document}
+
+To decrypt $\epsilon$, we use the closest integer function $\epsilon = \lceil z \rfloor \lceil z\alpha^{-1}\cdot \alpha \rfloor$, which gives $\epsilon$ small enough that $\lceil \epsilon \cdot \alpha^{-1}\rfloor = 0$. 
