@@ -1,153 +1,157 @@
-% K.M.S. 
-% kshort@iastate.edu
-% 2015
+% K.M. Short
+% 06112015
+% Iowa State University
+% Department of Mathematics
+% Undergraduate Mathematics Thesis
 
+\documentclass[letterpaper,11pt]{article}
 
-\documentclass[10pt,a4paper]{report}
-\usepackage[pdftex]{graphicx}
-\usepackage[bookmarks,
-            colorlinks=false,
-            pdfborder={0 0 0},
-            pdftitle={<pdf title here>},
-            pdfauthor={Kristi Short},
-            pdfsubject={<subject here>},
-            pdfkeywords={<keywords here>}]{hyperref}
+% Font Specs
+\usepackage{cmbright}		% computer modern bright
+\usepackage[T1]{fontenc}	% recomended font encoding
+% for endmatter
+\usepackage[toc,xindy]{glossaries} % glossaries package
 \usepackage{appendix}
-<<<<<<< Local Changes
-\usepackage[toc,xindy]{glossaries} 
-\usepackage[toc]{glossaries}
-=======
-\usepackage[toc,xindy]{glossaries} % Have xindy Make sure have xindy again after wipe
-\usepackage[toc]{glossaries}
->>>>>>> External Changes
-\usepackage{amsmath, amssymb, amsthm}
+\usepackage{amsrefs}		% switched from bibLaTeX because not as wordy on syntax
 
-% Packages supporting cryptocode package
-usepackage[usenames]{xcolor}
-\usepackage{hyperref}
-\usepackage[
-	n,
-	operators,
-	advantage,
-	sets,
-	adversary,
-	landau,
-	probability,
-	notions,	
-	logic,
-	ff,
-	mm,
-	primitives,
-	events,
-	complexity,
-	asymptotics,
-	keys]{cryptocode}
-\usepackage{url}
-\usetikzlibrary{shapes.callouts}
-\usepackage{listings}
-\usepackage{trace}
-\usepackage{makeidx}
-\usepackage{mdframed}
-\usepackage{csquotes}
-\usepackage{fullpage}
-\usepackage{dashbox}
-\usepackage{todonotes}
-\usepackage{cryptocode}
+\usepackage{hyperref}		% for uri in document links
+\usepackage{tikz}			% for graphs
+\usepackage{graphicx}		% for including graphics
 
-% complexity package
+% Math packages
+\usepackage{amsmath,amssymb,amsthm}
+
+% Packages for  cryptography and complexity
+\usepackage[n,operators,advantage,sets,adversary,landau,probability,notions,logic,ff,mm,primitives,events,complexity,asymptotics,keys]{cryptocode}
 \usepackage[classfont=bold,langfont=roman,funcfont=italic,basic]{complexity}
-<<<<<<< Local Changes
-\usepackage{amsrefs}
-=======
->>>>>>> External Changes
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %
-% % Some common theorem-ish structures to use
-% %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newtheoremstyle{bfthm}%
-{}{}%
-{\itshape}%
-{\bfseries}{.}%
-{}%
-{\thmname{#1}\thmnumber{ #2}\thmnote(#3)}}
+\usepackage{todonotes}		% for documentation
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Statement Specs
+\theoremstyle{plain}		% default
 \newtheorem{lem}{Lemma}
 \newtheorem{prop}{Proposition}
-\newtheorem{def}
-{Definition}% name
-{3pt}
-{3pt}
-{}
-{}
-{\rmshape}
-{:}
-{.5em}
-{} % definition
+\newtheorem*{cor}{Corollary}
+\newtheorem*{crit}{Criterion}
+\newtheorem*{ass}{Assertion}
+\newtheorem*{asu}{Assumption}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
 \newtheorem{xca}{Example}
+\newtheorem{pro}{Property}
+\newtheorem{axi}{Axiom}
+\newtheorem{algo}{Algorithm}
+\newtheorem{cond}{Condition}
+
+\theoremstyle{remark}
 \newtheorem*{rem}{Remark}
-
-\newtheorem*{note}%
-{Note}% name
-{3pt}% space above
-{3pt}% space below
-{}% body font
-{}% indent amount
-{\itshape}% heading shape
-{:}% colon after heading
-{.5em}% space after colon
-{}% headspace
-
 \newtheorem{case}{Case}
-\newtheorem{con}{Construction}
+\newtheorem*{note}{Note}
+\newtheorem*{nota}{Notation}
+\newtheorem*{conc}{Conclusion}
 
-\todo{change documentclass}
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Marks
+
+\title{UGThesis}
+\author{K.M. Short}
+\date{\today}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 \makeglossaries
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin Document
+
 \begin{document}
-
-
-% Front Matter
-
-\include{title}
-\thispagestyle{empty}
-
-\include{abstract}
-
-\pagenumbering{roman} %numbering before main content starts
-
-
-\tableofcontents
-
-\listoffigures
-
-\listoftables
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-
-
-\pagenumbering{arabic} %reset numbering to normal for the main content
-
-\include{glossary}
-\include{introduction}
-<<<<<<< Local Changes
-\include{background}
-\include{conclusion}
-\
-
-% End Matter
-\include{acknowledgements}
-
-%\include{appendix}
-
-%\include{bibliography}
-
-%\printacronyms
-%\printglossaries
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Front Matter
+	\include{title}
+	\thispagestyle{empty}
+	\pagenumbering{roman}
+	\include{abstract}
+	\tableofcontents
+	\listoffigures
+	\listoftables
+	
+	\newpage
+	
+	% Body
+	\pagenumbering{arabic}
+	% introduction and associated sections
+	\include{introduction}			% updated
+	\include{overview}				% updated
+	
+	% background and associated sections
+	\include{background}
+	
+	% lattices and associated sections
+	%\include{lattices}
+	
+	% cyclotomy and associated sections
+	%\include{cyclotomy}
+	
+	% complexity and associated sections
+	\include{complexity}
+	%\include{average}
+	%\include{worst}
+	
+	% infoSec and associated sections
+	%\include{infosec}
+	\include{semsec}
+	\include{attackmodels}
+	
+	% cryptography and associated sections
+	\include{pkc}
+	%\include{symmetric} 
+	%\include{asymmetric}
+	
+	% quantum-safe and associated sections
+	\include{qsafe}
+	\include{qusafe}
+	
+	% lattice-based crypto
+	\include{lintro}
+	\include{ajtai}
+	%\include{avgworst}
+	\include{regev}
+	\include{lwe}
+	\include{peikert}
+	\include{rlwe}
+	\include{irlwe}
+	\include{gentry}
+	
+	% FHE and associated sections
+	\include{fhe}				% updated
+	\include{fheusecases}
+	\include{intsoliloquy}		% updated
+	\include{sol1}
+	\include{sol2}
+	\include{sol3}
+	%\include{soliloquy}
+	%\include{classicverify}
+	%\include{quantumverify}
+	
+	
+	% conclusion
+	\include{conclusion}
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% backmatter
+	%\include{glossary}
+	\include{bibli}
+	%\include{appendix}
+	%\include{notes}
+	
+	%\printacronyms
+	%\printglossary
+	
 \end{document}
