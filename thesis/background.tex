@@ -41,8 +41,8 @@ There are four basic security objectives that must be considered when constructi
 \item \textbf{Confidentiality:} The objective of confidentiality ensures that unauthorized users will not be purposefully (or accidentally) give access to resources protected by the system. 
 \item \textbf{Integrity:} Ensures that the resources are preserved, used, and appropriately maintained throughout their life-cycle under the system. That is, any data is not alterable in an undetectable manner, retains the same
 accuracy as its created date (or registered modification date), and is complete with respect to its creation and activity log. 
-\item \textbf{Availability:}
-\item \textbf{Non-repudiation:} 
+\item \textbf{Availability:} Ensuring resources are available to authorized parties as required. 
+\item \textbf{Non-repudiation:} Prevention of commitment or action denial.
 \end{itemize}
 
 \subsubsection{Derived Security Objectives}
@@ -53,79 +53,16 @@ Each implementation of a scheme requires a flexible set of security objectives w
 \input{TableDerivableSecurityObjectives.tex}
 \newline
 \section{Formal Security Reduction} 
-\textbf{TODO: INSERT SECTION}
-\textbf{Definition}
-\textbf{TODO: INSERT SECTION}
-\textbf{TODO: INSERT FORMULA}
 
-\section{Hardness Assumptions} 
 
-\subsection{Average-case}  
-We say a cryptographic algorithm or cryptosystem has average-case hardness if: 
-Informally: The mathematical problem the algorithm (or system of
-algorithms) is based on cannot be solved in polynomial time by a
-standard computer with a slightly more than reasonable amount of resources. 
-\newline
-More-formally: If a key is chosen at random, then there is no probabilistic polynomial time algorithm that solves the mathematical problem for some non-negligible probability. 
 
-\subsection{Best-case}
-
-\subsection{Worst-case} 
-For an average-case security proof we are assured the mathematical problem
-the scheme is based on cannot be solved by a classical computer system in polynomial time in all except a negligible set of its random functional instances.
-A worst-case security proof carries all the security given by the average-case, but it also covers the small set of functional instances the average-case counts as negligible. 
-\newline
-Informally, a worst-case security proof takes the functional instance which is
-hardest to solve and shows the scheme is as least as strong as that
-instance, since there are no harder instances, there does not exist
-a computer which can solve its mathematical problem in polynomial time.
 
 \section{Post-quantum cryptography} 
-The need for new cryptographic systems developed after Peter Shorr proved that the classical number-theoretic schemes could be "easily" broken by quantum computers. Quantum systems are capable of running algorithms which provide solutions to the mathematical problems the classical schemes base their security reductions on. The development of quantum computing lead to a new area of cryptography called post-quantum cryptography. 
+The need for new cryptographic systems developed after Peter Shorr proved that the classical number-theoretic schemes could be easily broken by quantum computers. Quantum systems are capable of running algorithms which provide solutions to the mathematical problems the classical schemes base their security reductions on. The development of quantum computing lead to a new area of cryptography called post-quantum cryptography. 
 \newline 
 Post-quantum cryptography is necessarily distinct from quantum cryptography it's concern is finding and implementing schemes which are secure against quantum-based attacks.
 \newline 
 Not to be confused with Quantum-cryptography which uses quantum computers to find and implement new quantum cryptosystems.
 
-\section{Lattice-based Cryptography} 
-Lattice-based Cryptosystems are a subclass of Post-quantum cryptosystems. A worst-case security proof for a lattice based scheme not only claims security against attacks from classical (current) computer systems, but quantum as well. The drawback is these not as efficient (yet) as other more well known schemes. However, lattice-based schemes claim a unique benefit that other post-quantum schemes do not. 
 
-\subsection{Ajtai's Average-Worst Case Hardness Connection}
-
-\subsection{Learning with Errors (LWE)}
-
-LWE, has a quantum reduction from SVP. LWE forms the basis of security for many other algorithms which gain SVP as basis for their own security.
- 
- 
-\input{fhe.tex}
-
-\section{Ideal Lattice-based Cryptography}
-The additional application areas and ease of implementation due to ideal ring structure is convenient, the choice of ring its self is as important as the problem it is based upon. An advantage of Ring-LWE is its much smaller set of keys; the ring allows for more efficient and larger ranges in application areas. 
-
-Ideal Ring-LWE allows an even broader range of applications and efficiency than RLWE due to the additional structure provided by the principal ideals.
-
-\subsection{Ring-LWE}
-
-\subsection{Implementations of Ideal Ring Lattice Cryptosystems}
-
-\subsubsection{Gentry's Scheme}
-[Gen2009] Was the first successful construction fully homomorphic encryption scheme In 2009 Craig Gentry constructed the first cryptographic system capable of evaluating arbitrary operations. The scheme was constructed over a principal ideal lattice [Gen2009] uses a bootstrap method to prove its security.
-Definition: Bootstrap Method 
-
-\subsubsection{Smarts Scheme}
-
-\subsubsection{Peikerts Scheme}
-
-\subsection{Principal Ideal Lattice Insecurities}
-
-The cyclotomic field of characteristic two infers so many convenient structures it is often chosen without consideration to any other ring \textbf{TODO: Insert Citation}.
-
-In 2010 at the Public Key Cryptography Conference two researchers Smart and Veracauteren [SV10] introduced another ideal lattice scheme promising fully homomorphic encryption and quantum assumption hardness proofs. In late 2014 GCHQ (Government Communications Head Quarters) announced that it had been working on such a scheme, nearly identical to [SV10] and claimed that not only was it easy to solve using a quantum computer but was subexponential for classical computer systems as well. The attack did not directly apply to most constructions of lattice-based schemes only a handful who had used ideal lattices in the cyclotomic field of characteristic two, where the private keys were represented by principal ideals which were short generators. 
-
-A team of researchers Ronald Cramer, Leo Ducas, Chris Peikert, and Oded Regev [Cra15] who had prior to CESG announcement strongly encouraged new constructions in other fields quickly proved CESG’s claim. Moreover, they proved that in cyclotomic fields with dimensions of prime power order which guaranteed existence of a ‘short’ generator the lattice could always be efficiently decoded revealing the private key.
-
-\section{Greedy Problem Management}
-
-Insert Quote by Regev about Principal Ideal Lattice schemes being greedy 
-Discuss Efficiency/Security Balancing
 

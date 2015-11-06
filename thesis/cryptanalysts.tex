@@ -1,0 +1,40 @@
+\subsection{Characterization of Cryptanalysts}
+
+We divide cryptanalysts into four subclasses given as a variation of
+the subclasses of cryptographic secrecy.
+We make our division in reverse order in terms of hardness as
+follows:
+
+\begin{itemize}
+\item{Practical Secrecy:} In this subclass of cryptanalysts we have those
+which most frequently occur. These cryptanalysts are in possesion of
+finite computational resources but may use social, sidechannel, or
+other methods to obtain a break on a system which does not break the
+mathematics of the scheme itself, may not in the future be reproduced,
+but are sucessful in their attempt none the less.
+
+\item{Computational Secrecy:} This subclass of cryptanalysts are those who
+we can assume have at their disposal more resources and are capable of
+more large scale attacks than those in the previous subclass. They are
+still in possession of all the methods of the practical cryptanalysts
+but we make the assumption that they are not working alone but as a
+well organized unit such as those of a large organization. These
+attacks are becoming more and more frequent the organization itself may
+be known to the defense but for various reasons ( including but not
+limited to political) a direct confrontation must be avoided.
+
+\item{Unconditional Secrecy:} In this subclass we find those cryptanalysts
+who directly attack the mathematics of a given cryptosystem.
+Specifically we have the cryptanalysts who play against most modern
+systems based on the discrete logarithm problem, the integer
+factorization problem, and other number theoretic schemes. We limit
+this group to problems which are played over systems whose proofs of
+security are given over schemes an average-case hardness.
+
+\item{Perfect Secrecy:} This is the subclass of cryptanalysts we will be
+concerned with for the remainder of this paper. These players are
+concerned with breaking the mathematics of schemes based on intractible
+problems with a provable security based on worst-case hardness
+assumptions. Specifically, we concern ourselves with the concept of
+quantum-safe cryptographic schemes over lattices.
+\end{itemize}

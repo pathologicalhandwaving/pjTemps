@@ -1,0 +1,26 @@
+\section{The Soliloquy Problem}
+
+In 2010 at the International Public Key Cryptography conference Smart
+and Veracauteren introduced a cryptographic scheme [\cite{sma20101}] based on
+principal ideal lattices with relatively small key sizes and promising
+to enable FHE.
+\smallskip
+In late 2014 GCHQ announced that they had developed an equivalent
+cryptosystem to [\cite{sma20101}] in 2007 named Soliloquy[\cite{cam20140}], but from 2010 to
+2013 they had constructed a successful attack against the system and
+decided to cease development.
+\smallskip
+Furthermore, they claimed (without proof) that the assumed hard
+problem of finding the short generator of a principal ideal lattice was
+both easy and efficient to solve. This conflicted with the [\cite{sma20101}]
+claim that the problem of finding a short generator was hard. In
+addition the solvability claim GCHQ was not only given for quantum
+computers but also for ordinary modern computer system with a practical
+amounts of resources.
+\smallskip
+The announcement by GCHQ created quite a stir in the cryptographic
+community. The concern was due to the seeming quantum-safe properties
+of lattice based cryptosystems. Since, ideal lattice-based schemes are
+a small subset of these schemes there was a need to ensure that the
+attack did not imply similar weaknesses in the more general schemes or
+any other special cases of lattice-based schemes.

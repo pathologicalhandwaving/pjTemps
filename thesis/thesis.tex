@@ -21,8 +21,42 @@
 \usepackage[toc]{glossaries}
 >>>>>>> External Changes
 \usepackage{amsmath, amssymb, amsthm}
-<<<<<<< Local Changes
+
+% Packages supporting cryptocode package
+usepackage[usenames]{xcolor}
+\usepackage{hyperref}
+\usepackage[
+	n,
+	operators,
+	advantage,
+	sets,
+	adversary,
+	landau,
+	probability,
+	notions,	
+	logic,
+	ff,
+	mm,
+	primitives,
+	events,
+	complexity,
+	asymptotics,
+	keys]{cryptocode}
+\usepackage{url}
+\usetikzlibrary{shapes.callouts}
+\usepackage{listings}
+\usepackage{trace}
+\usepackage{makeidx}
+\usepackage{mdframed}
+\usepackage{csquotes}
+\usepackage{fullpage}
+\usepackage{dashbox}
 \usepackage{todonotes}
+\usepackage{cryptocode}
+
+% complexity package
+\usepackage[classfont=bold,langfont=roman,funcfont=italic,basic]{complexity}
+<<<<<<< Local Changes
 \usepackage{amsrefs}
 =======
 >>>>>>> External Changes
@@ -41,7 +75,16 @@
 
 \newtheorem{lem}{Lemma}
 \newtheorem{prop}{Proposition}
-\newtheorem{def}{Definition}
+\newtheorem{def}
+{Definition}% name
+{3pt}
+{3pt}
+{}
+{}
+{\rmshape}
+{:}
+{.5em}
+{} % definition
 \newtheorem{xca}{Example}
 \newtheorem*{rem}{Remark}
 
@@ -94,17 +137,17 @@
 <<<<<<< Local Changes
 \include{background}
 \include{conclusion}
-
+\
 
 % End Matter
 \include{acknowledgements}
 
-\include{appendix}
+%\include{appendix}
 
-\include{bibliography}
+%\include{bibliography}
 
-\printacronyms
-\printglossaries
+%\printacronyms
+%\printglossaries
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

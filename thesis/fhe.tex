@@ -1,22 +1,16 @@
-\documentclass{article}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{todonotes}
-
-\begin{document}
-
-
-
-\section{Fully Homomorphic Encryption} 
-Lattice-based schemes have the potential of providing Fully Homomorphic Encryption to a given cryptosystem. 
-The problem which FHE solves is only slightly different than that of PKC. We want to take our encrypted data, send it to an unauthorized party for processing, 
+\chapter{Fully Homomorphic Encryption} 
+\medskip
+In addition to their seeming quantum-safe features lattice-based schemes have the potential of providing Fully Homomorphic Encryption (FHE) to a given cryptosystem. 
+The problem which FHE solves is only slightly different than that of Public-key. We want to take our encrypted data, send it to an unauthorized party for processing, 
 and receive the same results we would get if we had never encrypted it.
 \newline
 Cryptologists have spent a great deal of their time removing the natural homomorphisms from most schemes like RSA. While at the same time wishing for a doubly homomorphic system. 
 
 
-\newline
+\bigskip
 
 \subsection{Homomorphic Properties of Cryptographic Schemes} 
+\medskip
 Many classical public key cryptography methods have a homomorphic property, this property says if add two things together then their sum contains information about those two things.
 That is, they use successive operations of addition, multiplication, etc. to create ciphertext. 
 We call these schemes Partially Homomorphic since their operations cannot be performed simultaneously. 
@@ -34,7 +28,5 @@ All computers operate by using trillions upon trillions of boolean circuits. Boo
 
 Boolean circuits have three basic functions from which the rest can be derived, they are AND, OR, and NOT. You can combine these two of functions to get a total set of sixteen different boolean functions. Engineers have been using these functions for ages, but cryptographers were stuck with one. 
 
-\subsection{Use Cases}
-Cloud Outsourcing 
 
-\end{document}
+

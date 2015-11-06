@@ -1,0 +1,21 @@
+\section{Computational Complexity} 
+
+\todo{this section to be merged or deprecated}
+\subsection{Average-case}  
+We say a cryptographic algorithm or cryptosystem has average-case hardness if: 
+Informally: The mathematical problem the algorithm (or system of
+algorithms) is based on cannot be solved in polynomial time by a
+standard computer with a slightly more than reasonable amount of resources. 
+\newline
+More-formally: If a key is chosen at random, then there is no probabilistic polynomial time algorithm that solves the mathematical problem for some non-negligible probability. 
+
+
+\subsection{Worst-case} 
+For an average-case security proof we are assured the mathematical problem
+the scheme is based on cannot be solved by a classical computer system in polynomial time in all except a negligible set of its random functional instances.
+A worst-case security proof carries all the security given by the average-case, but it also covers the small set of functional instances the average-case counts as negligible. 
+\newline
+Informally, a worst-case security proof takes the functional instance which is
+hardest to solve and shows the scheme is as least as strong as that
+instance, since there are no harder instances, there does not exist
+a computer which can solve its mathematical problem in polynomial time.

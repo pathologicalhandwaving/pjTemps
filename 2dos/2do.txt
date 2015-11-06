@@ -1,8 +1,0 @@
-* Review Gentry notes from Gen2009
-* In Gen2009 get circuit and circuit private 
-* Make sure methods described make sense, and you have understood them as intended. 
-* In Pei2015 Slides find out context of expander graphs
-* Specific: Find out why a connected expander, or how a connected expander implies circuit privacy. 
-* What might be other implications of circuit privacy?
-* Put definitions of circuit and circuit private in your own words and make sure you get them verified. 
-* In Gen2009: Bootstrap Theorem

@@ -1,0 +1,107 @@
+\documentclass{report}
+
+
+\usepackage{todonotes}
+
+
+\begin{document}
+	
+	\begin{itemize} % 0
+		\item \textbf{Front Matter} % 1
+			\begin{enumerate} % 2
+				\item title page % 2
+				\item abstract % 2
+				\item table of contents % 2
+				\item list of tables % 2
+				\item list of figures % 2
+			\end{enumerate} % 2
+			\smallskip
+		\item \textbf{Body} % 1
+			\smallskip
+			\begin{itemize} % 2
+				\item Introduction % 2
+				\item Background % 2
+				\item InfoSec % 2
+					\begin{itemize} % 3
+						\item Def: Security % 3
+						\item Intersection of InfoSec, Crypto, and Maths % 3
+					\end{itemize} % 3	
+			\item \textbf{PKC} % 2
+				\begin{itemize} % 3
+					\item Symmetric-key % 3
+					\item Asymmetric-key % 3
+					\item Intersection % 3
+				\end{itemize} % 3
+			\item\textbf{ \begin{quotation} Classical \end{quotation} Hardness Assumptions} % 2
+				\begin{itemize}
+					\item Weaknesses in the Assumptions of RSA
+						\begin{itemize}
+							\item Best-case
+							\item Average-case
+							\item Worst-case
+						\end{itemize}
+					\item \textbf{Basic InfoSec}
+						\begin{itemize}
+							\item Base Security Objectives
+							\item Derivable Security Objectives
+							\item Considerations due to Mathematics
+							\item Considerations due to Implementation
+							\item Basic Security Assumptions (and their reasons: Kalmogorov's Laws, Shannon's Principle, etc.)								\end{itemize}
+						\end{itemize}
+				\end{itemize}
+			\item \textbf{Stronger Definitions for Security}
+				\begin{itemize}
+					\item Semantic Security
+					\item Attack Models
+				\end{itemize}
+			\item \textbf{Post-quantum Cryptography}
+				\begin{itemize}
+					\item Not Quantum Post-quantum
+					\item General Purpose Quantum Computer Estimate
+					\item LLL Algorithm
+					\item Algorithms and Problems Succeptible to LLL
+				\end{itemize}
+			\item \textbf{Post-quantum Alternatives}
+				\begin{itemize}
+					\item Hash Functions
+					\item Code-based Algorithms
+					\item ECC-upgrade
+					\item ...
+					\item Lattice-based crypto
+				\end{itemize}
+			\item \textbf{Connecting the Average and Worst Cases}
+				\begin{itemize}
+					\item Ajtai's Connection
+					\item NTRU
+					\item Heuristic Based Security
+				\end{itemize}
+			\item \textbf{LWE}
+				\begin{itemize}
+					\item Lattice Problems
+					\item Regev's Lemma
+					\item LWE Algorithms
+					\item Hardness of LWE
+				\end{itemize}
+			\item \textbf{RLWE}
+				\begin{itemize}
+					\item Peikert and RLWE
+					\item Hardness of RLWE
+					\item New RLWE Benchmarks and Improvements
+				\end{itemize}
+			\item \textbf{Soliloquy}
+				\begin{itemize}
+					\item SV2010 and GCHQ
+					\item SV's Scheme
+					\item GCHQ's breaks
+						\begin{itemize}
+							\item Classical
+							\item Verification [Cra2015]
+							\item Quantum
+							\item Verification [Waterloo??2015]
+						\end{itemize}
+					\item Balance
+				\end{itemize}
+	\end{itemize}
+	
+
+\end{document}
