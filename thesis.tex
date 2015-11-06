@@ -1,0 +1,153 @@
+% K.M.S. 
+% kshort@iastate.edu
+% 2015
+
+
+\documentclass[10pt,a4paper]{report}
+\usepackage[pdftex]{graphicx}
+\usepackage[bookmarks,
+            colorlinks=false,
+            pdfborder={0 0 0},
+            pdftitle={<pdf title here>},
+            pdfauthor={Kristi Short},
+            pdfsubject={<subject here>},
+            pdfkeywords={<keywords here>}]{hyperref}
+\usepackage{appendix}
+<<<<<<< Local Changes
+\usepackage[toc,xindy]{glossaries} 
+\usepackage[toc]{glossaries}
+=======
+\usepackage[toc,xindy]{glossaries} % Have xindy Make sure have xindy again after wipe
+\usepackage[toc]{glossaries}
+>>>>>>> External Changes
+\usepackage{amsmath, amssymb, amsthm}
+
+% Packages supporting cryptocode package
+usepackage[usenames]{xcolor}
+\usepackage{hyperref}
+\usepackage[
+	n,
+	operators,
+	advantage,
+	sets,
+	adversary,
+	landau,
+	probability,
+	notions,	
+	logic,
+	ff,
+	mm,
+	primitives,
+	events,
+	complexity,
+	asymptotics,
+	keys]{cryptocode}
+\usepackage{url}
+\usetikzlibrary{shapes.callouts}
+\usepackage{listings}
+\usepackage{trace}
+\usepackage{makeidx}
+\usepackage{mdframed}
+\usepackage{csquotes}
+\usepackage{fullpage}
+\usepackage{dashbox}
+\usepackage{todonotes}
+\usepackage{cryptocode}
+
+% complexity package
+\usepackage[classfont=bold,langfont=roman,funcfont=italic,basic]{complexity}
+<<<<<<< Local Changes
+\usepackage{amsrefs}
+=======
+>>>>>>> External Changes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %
+% % Some common theorem-ish structures to use
+% %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheoremstyle{bfthm}%
+{}{}%
+{\itshape}%
+{\bfseries}{.}%
+{}%
+{\thmname{#1}\thmnumber{ #2}\thmnote(#3)}}
+
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{def}
+{Definition}% name
+{3pt}
+{3pt}
+{}
+{}
+{\rmshape}
+{:}
+{.5em}
+{} % definition
+\newtheorem{xca}{Example}
+\newtheorem*{rem}{Remark}
+
+\newtheorem*{note}%
+{Note}% name
+{3pt}% space above
+{3pt}% space below
+{}% body font
+{}% indent amount
+{\itshape}% heading shape
+{:}% colon after heading
+{.5em}% space after colon
+{}% headspace
+
+\newtheorem{case}{Case}
+\newtheorem{con}{Construction}
+
+\todo{change documentclass}
+
+\makeglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+% Front Matter
+
+\include{title}
+\thispagestyle{empty}
+
+\include{abstract}
+
+\pagenumbering{roman} %numbering before main content starts
+
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+
+\pagenumbering{arabic} %reset numbering to normal for the main content
+
+\include{glossary}
+\include{introduction}
+<<<<<<< Local Changes
+\include{background}
+\include{conclusion}
+\
+
+% End Matter
+\include{acknowledgements}
+
+%\include{appendix}
+
+%\include{bibliography}
+
+%\printacronyms
+%\printglossaries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
